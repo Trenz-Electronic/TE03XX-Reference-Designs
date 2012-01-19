@@ -1,0 +1,76 @@
+CoreGen has not been configured with any user repositories.
+CoreGen has been configured with the following Xilinx repositories:
+ - 'C:\Xilinx\13.2\ISE_DS\ISE\coregen\' [using existing xil_index.xml]
+INFO:encore:314 - Created non-GUI application for batch mode execution.
+Ignoring command "newproject
+D:/Projekti/Trenz/redmine/TE-ReferenceDesigns/TE03xx-ISE/trunk/reference-TE0300-
+01-ISE-13_2/implementation/xps_fx2_0_wrapper
+" in file
+D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0300-
+01-ISE-13_2\implementation\xps_fx2_0_wrapper\coregen.cgp
+Ignoring command "setproject
+D:/Projekti/Trenz/redmine/TE-ReferenceDesigns/TE03xx-ISE/trunk/reference-TE0300-
+01-ISE-13_2/implementation/xps_fx2_0_wrapper
+" in file
+D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0300-
+01-ISE-13_2\implementation\xps_fx2_0_wrapper\coregen.cgp
+INFO:sim - Generating component instance 'rx_fifo' of
+   'xilinx.com:ip:fifo_generator:7.2' from
+   'C:\Xilinx\13.2\ISE_DS\ISE\coregen\ip\xilinx\primary\com\xilinx\ip\fifo_gener
+   ator_v7_2\fifo_generator_v7_2.xcd'.
+Resolving generic values...
+WARNING:sim:597 - The parameter 'Data_Count_Width' is disabled and can't be set
+   to any other value than '11'. Its value will be reset from '12' to its last
+   valid value '11'.
+WARNING:sim:192 - Xco Parameter changed from (Data_Count_Width,12) to
+   (Data_Count_Width,11) during Recustomization.
+Finished resolving generic values.
+Generating IP...
+WARNING:sim - You are using Fifo Generator 7.2 which has been replaced with a
+   new version. This version of the core will be removed in a future release.
+   Cores in this state are not supported.
+XST: HDL Compilation
+XST: Design Hierarchy Analysis
+XST: HDL Analysis
+XST: HDL Synthesis
+XST: Advanced HDL Synthesis
+XST: Low Level Synthesis
+Generating Implementation files.
+Generating the Verilog wrapper.
+Generating NGC file.
+Finished Generation.
+Generating IP instantiation template...
+Generating ASY schematic symbol...
+Generating metadata file...
+Generating ISE project...
+Generating README file...
+Generating FLIST file...
+INFO:sim - Finished FLIST file generation.
+Moving files to output directory...
+Finished moving files to output directory
+Ignoring command "newproject
+D:/Projekti/Trenz/redmine/TE-ReferenceDesigns/TE03xx-ISE/trunk/reference-TE0300-
+01-ISE-13_2/implementation/xps_fx2_0_wrapper
+" in file
+D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0300-
+01-ISE-13_2\implementation\xps_fx2_0_wrapper\coregen.cgp
+Ignoring command "setproject
+D:/Projekti/Trenz/redmine/TE-ReferenceDesigns/TE03xx-ISE/trunk/reference-TE0300-
+01-ISE-13_2/implementation/xps_fx2_0_wrapper
+" in file
+D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0300-
+01-ISE-13_2\implementation\xps_fx2_0_wrapper\coregen.cgp
+Saved CGP file for project 'coregen'.
+Ignoring command "newproject
+D:/Projekti/Trenz/redmine/TE-ReferenceDesigns/TE03xx-ISE/trunk/reference-TE0300-
+01-ISE-13_2/implementation/xps_fx2_0_wrapper
+" in file
+D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0300-
+01-ISE-13_2\implementation\xps_fx2_0_wrapper\coregen.cgp
+Ignoring command "setproject
+D:/Projekti/Trenz/redmine/TE-ReferenceDesigns/TE03xx-ISE/trunk/reference-TE0300-
+01-ISE-13_2/implementation/xps_fx2_0_wrapper
+" in file
+D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0300-
+01-ISE-13_2\implementation\xps_fx2_0_wrapper\coregen.cgp
+Saved CGP file for project 'coregen'.

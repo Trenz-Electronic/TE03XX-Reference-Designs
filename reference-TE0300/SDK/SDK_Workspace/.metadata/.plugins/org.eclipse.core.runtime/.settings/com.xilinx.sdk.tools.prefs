@@ -1,0 +1,26 @@
+#Thu Oct 27 18:24:48 CEST 2011
+com.xilinx.sdk.linkgen.prefs.demo\:.sbss=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.bootloader\:.text=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.bootloader\:Heap-size=1024
+com.xilinx.sdk.linkgen.prefs.demo\:Stack=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.demo\:Heap-size=1024
+eclipse.preferences.version=1
+com.xilinx.sdk.linkgen.prefs.demo\:.bss=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.bootloader\:Heap=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.bootloader\:.sdata=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.demo\:Stack-size=1024
+com.xilinx.sdk.linkgen.prefs.bootloader\:Stack-size=1024
+com.xilinx.sdk.linkgen.prefs.bootloader\:.data=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.demo\:.text=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.bootloader\:.sbss=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.demo\:.sdata=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.bootloader\:.sdata2=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.bootloader\:.rodata=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.bootloader\:.sbss2=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.bootloader\:Stack=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.demo\:Heap=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.demo\:.sbss2=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.bootloader\:.bss=ilmb_cntlr_dlmb_cntlr
+com.xilinx.sdk.linkgen.prefs.demo\:.sdata2=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.demo\:.data=DDR_SDRAM_MPMC_BASEADDR
+com.xilinx.sdk.linkgen.prefs.demo\:.rodata=DDR_SDRAM_MPMC_BASEADDR

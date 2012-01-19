@@ -1,0 +1,38 @@
+WARNING:EDK:3605 - Use of the repository located at
+   C:\Xilinx\13.2\ISE_DS\edk_user_repository\ 
+   (equivalent of $XILINX_EDK/../edk_user_repository) is now deprecated. 
+   It is recommended that you use Global SearchPath preference to specify search
+   paths that apply to all the projects.
+
+Checking platform configuration ...
+IPNAME: plb_v46, INSTANCE: mb_plb - 2 master(s) : 9 slave(s) 
+IPNAME: lmb_v10, INSTANCE: ilmb - 1 master(s) : 1 slave(s) 
+IPNAME: lmb_v10, INSTANCE: dlmb - 1 master(s) : 1 slave(s) 
+
+Checking port drivers...
+WARNING:EDK:4181 - PORT: ChipScope, CONNECTOR: xps_fx2_0_ChipScope - floating
+   connection -
+   D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE03
+   00-01-ISE-13_2\system.mhs line 333 
+WARNING:EDK:4181 - PORT: IP2INTC_Irpt, CONNECTOR: xps_npi_dma_0_IP2INTC_Irpt -
+   floating connection -
+   D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE03
+   00-01-ISE-13_2\system.mhs line 351 
+
+Performing Clock DRCs...
+
+Performing Reset DRCs...
+
+Overriding system level properties...
+
+Running system level update procedures...
+
+Running UPDATE Tcl procedures for OPTION SYSLEVEL_UPDATE_PROC...
+
+Running system level DRCs...
+
+Performing System level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+Chipscope Integrate Controller, instance 'chipscope_icon', exists in System 
+Conversion to XML complete.

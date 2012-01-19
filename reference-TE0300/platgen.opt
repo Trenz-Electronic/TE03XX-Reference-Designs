@@ -1,0 +1,9 @@
+-p
+xc3s1600efg320-4
+-lang
+vhdl
+-lp
+D:/Projekti/Trenz/redmine/IpCores-ISE/
+-msg
+__xps/ise/xmsgprops.lst
+system.mhs

@@ -1,0 +1,3 @@
+PROCESSOR=microblaze_0
+REPOSITORIES=-lp D:/Projekti/Trenz/redmine/IpCores-ISE
+HWSPEC=../reference-TE0300-01-ISE-13_2_hw_platform/system.xml
