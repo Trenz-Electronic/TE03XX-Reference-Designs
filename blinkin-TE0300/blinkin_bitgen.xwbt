@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\blinkin-TE0300\blinkin.ncd
+OUTFILE=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\blinkin-TE0300\blinkin.bit
+FAMILY=Spartan3E
+PART=xc3s1600e-4fg320
+WORKINGDIR=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\blinkin-TE0300
+LICENSE=ISE
+USER_INFO=No user information available.
