@@ -1,0 +1,27 @@
+
+################################################################################
+########################## Simulation Report File ##############################
+################################################################################
+
+ Summary
+ -------
+ Result                              : Design not loaded
+ Total Run Time                      : 0 
+ Number Of Info messages             : 0
+ Number Of Warnings                  : 0
+ Number of Violations                : 0
+ Number Of Errors                    : 0
+
+ Section 1 - Info
+ ----------------
+ 
+ Section 2 - Warnings
+ --------------------
+ 
+ Section 3 - Violations
+ ----------------------
+
+ Section 4 - Errors
+ ------------------
+ 
+ Please look at transcript file for more details

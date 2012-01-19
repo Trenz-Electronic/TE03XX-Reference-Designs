@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project NoOfControllers="1" >
+    <DCM>0</DCM>
+    <ModuleName>mig_23</ModuleName>
+    <Class>Class I</Class>
+    <Debug_En>Disable</Debug_En>
+    <TargetFPGA>xc3sd1800a-fg676/-4</TargetFPGA>
+    <Version>2.3</Version>
+    <SystemClock>Single-Ended</SystemClock>
+    <FPGADevice>
+        <selected>3s/xc3sd3400a-fg676</selected>
+    </FPGADevice>
+    <Controller number="0" >
+        <MemoryDevice>DDR_SDRAM/Components/MT46V32M16XX-5B</MemoryDevice>
+        <Clocking>Local clocking</Clocking>
+        <Frequency>133</Frequency>
+        <DataWidth>32</DataWidth>
+        <DataMask>1</DataMask>
+        <RowAddress>13</RowAddress>
+        <ColAddress>10</ColAddress>
+        <BankAddress>2</BankAddress>
+        <TimingParameters>
+            <Parameters trfc="70" twtr="2" tis="600" tdqsq="400" twr="15" tac="700" trap="15.0" trrd="10.0" tras="40" tqhs="500" tjit="150" tdqsck="600" trc="55" tdh="400" tck_min="5.0" tmrd="10" trcd="15" tih="600" trp="15" tds="400" />
+        </TimingParameters>
+        <WritePipeLine>4</WritePipeLine>
+        <BankSelection>
+            <Bank Control="1" SysClk="0" Data="1" name="3" Address="1" wasso="10" />
+        </BankSelection>
+        <mrBurstLength name="Burst Length" >2(001)</mrBurstLength>
+        <mrBurstType name="Burst Type" >sequential(0)</mrBurstType>
+        <mrCasLatency name="CAS Latency" >2(010)</mrCasLatency>
+        <mrMode name="Operating Mode" >normal(00000)</mrMode>
+        <emrDllEnable name="DLL Enable" >Enable-Normal(0)</emrDllEnable>
+        <emrOutputDriveStrength name="Outputdrive Strength" >100%(0)</emrOutputDriveStrength>
+    </Controller>
+</Project>

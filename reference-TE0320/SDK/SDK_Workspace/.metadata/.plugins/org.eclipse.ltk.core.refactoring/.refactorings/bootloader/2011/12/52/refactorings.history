@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;bootloader/src/main.XC3SD1800A.c&apos; to &apos;main.c.XC3SD1800A&apos;" description="Rename resource &apos;main.XC3SD1800A.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main.XC3SD1800A.c" name="main.c.XC3SD1800A" stamp="1324491163531" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;bootloader/src/main.XC3SD3400A.c&apos; to &apos;main.c.XC3SD3400A&apos;" description="Rename resource &apos;main.XC3SD3400A.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main.XC3SD3400A.c" name="main.c.XC3SD3400A" stamp="1324491175892" updateReferences="true"/>
+</session>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0320-00-EDK-13-2\SDK\SDK_Workspace\bootloader\Debug\bootloader.elf" key="reference-TE0320-00-EDK-13-2_hw_platform-microblaze_0-initElf"/>
+	<item value="D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0320-00-EDK-13-2\SDK\SDK_Workspace\reference-TE0320-00-EDK-13-2_hw_platform\system.bit" key="reference-TE0320-00-EDK-13-2_hw_platform-bitFile"/>
+	<item value="D:\Projekti\Trenz\redmine\TE-ReferenceDesigns\TE03xx-ISE\trunk\reference-TE0320-00-EDK-13-2\SDK\SDK_Workspace\reference-TE0320-00-EDK-13-2_hw_platform\system_bd.bmm" key="reference-TE0320-00-EDK-13-2_hw_platform-bmmFile"/>
+</section>

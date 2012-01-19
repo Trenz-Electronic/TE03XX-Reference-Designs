@@ -1,0 +1,20 @@
+# Date: Mon Apr 20 20:34:42 2009
+SET addpads = False
+SET asysymbol = False
+SET busformat = BusFormatAngleBracketNotRipped
+SET createndf = False
+SET designentry = VHDL
+SET device = xc3sd1800a
+SET devicefamily = spartan3adsp
+SET flowvendor = Other
+SET formalverification = False
+SET foundationsym = False
+SET implementationfiletype = Ngc
+SET package = fg676
+SET removerpms = False
+SET simulationfiles = Behavioral
+SET speedgrade = -4
+SET verilogsim = False
+SET vhdlsim = True
+SET workingdirectory = E:\Projekti\Trenz\Nixdorf\MIG\tmp
+
