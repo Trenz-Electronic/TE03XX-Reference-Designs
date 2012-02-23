@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2012-01-19T16:03:55</DateModified>
+  <DateModified>2012-02-23T18:03:38</DateModified>
   <ModuleName>blinkin</ModuleName>
-  <SummaryTimeStamp>2012-01-19T16:03:44</SummaryTimeStamp>
-  <SavedFilePath>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/blinkin-TE0300/iseconfig/blinkin.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/blinkin-TE0300\</ImplementationReportsDirectory>
-  <DateInitialized>2011-07-17T16:53:38</DateInitialized>
+  <SummaryTimeStamp>2012-02-23T15:48:37</SummaryTimeStamp>
+  <SavedFilePath>C:/TEMP/blinkin-TE0300/iseconfig/blinkin.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/TEMP/blinkin-TE0300\</ImplementationReportsDirectory>
+  <DateInitialized>2012-02-23T15:43:35</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
@@ -31,13 +31,11 @@
   </viewgroup>
   <viewgroup label="XPS Errors and Warnings" >
    <view program="platgen" WrapMessages="true" contextTags="EDK_ON" hidden="true" type="MessageList" hideColumns="Filtered" file="__xps/ise/_xmsgs/platgen.xmsgs" label="Platgen Messages" />
-   <view program="libgen" WrapMessages="true" contextTags="EDK_ON" hidden="true" type="MessageList" hideColumns="Filtered" file="__xps/ise/_xmsgs/libgen.xmsgs" label="Libgen Messages" />
    <view program="simgen" WrapMessages="true" contextTags="EDK_ON" hidden="true" type="MessageList" hideColumns="Filtered" file="__xps/ise/_xmsgs/simgen.xmsgs" label="Simgen Messages" />
    <view program="bitinit" WrapMessages="true" contextTags="EDK_ON" hidden="true" type="MessageList" hideColumns="Filtered" file="__xps/ise/_xmsgs/bitinit.xmsgs" label="BitInit Messages" />
   </viewgroup>
   <viewgroup label="XPS Reports" >
    <view inputState="PreSynthesized" program="platgen" contextTags="EDK_ON" hidden="true" type="Secondary_Report" file="platgen.log" label="Platgen Log File" />
-   <view inputState="PreSynthesized" program="libgen" contextTags="EDK_ON" hidden="true" type="Secondary_Report" file="libgen.log" label="Libgen Log File" />
    <view inputState="PreSynthesized" program="simgen" contextTags="EDK_ON" hidden="true" type="Secondary_Report" file="simgen.log" label="Simgen Log File" />
    <view inputState="PreSynthesized" program="bitinit" contextTags="EDK_ON" hidden="true" type="Secondary_Report" file="bitinit.log" label="BitInit Log File" />
    <view inputState="PreSynthesized" program="system" contextTags="EDK_ON" hidden="true" type="Secondary_Report" file="blinkin.log" label="System Log File" />
