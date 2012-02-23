@@ -18,9 +18,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
 IN THE SOFTWARE.
 --------------------------------------------------------------------------------
-Simple LED blinkin project for TE0300 boards.
-For TE0300 board with xc3s1600e-4fg320 FPGA use blinkin-TE0300-1600 project.
-For TE0300 board with xc3s1200e-4fg320 FPGA use blinkin-TE0300-1200 project.
+Simple LED blinkin project for TE0320 boards.
+For TE0320 board with xc3sd1800a-4fgg676 FPGA use blinkin-TE0320-1800 project.
+For TE0320 board with xc3sd3400a-4fgg676 FPGA use blinkin-TE0320-3400 project.
 
 Project is under MIT license. All contributions should mit MIT license.
 --------------------------------------------------------------------------------
