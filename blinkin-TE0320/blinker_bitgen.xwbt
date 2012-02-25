@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\blinkin-TE0320\blinker.ncd
+OUTFILE=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\blinkin-TE0320\blinker.bit
+FAMILY=Spartan-3A DSP
+PART=xc3sd3400a-4fg676
+WORKINGDIR=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\blinkin-TE0320
+LICENSE=ISE
+USER_INFO=No user information available.
