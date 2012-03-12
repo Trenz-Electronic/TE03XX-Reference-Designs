@@ -2,7 +2,7 @@
 # Projects to release
 REPOSITORY=TE03XX-Reference-Designs
 # Numbers of projects to release (list like '1 2 3 4')
-PROJECT_LIST='1 2 3'
+PROJECT_LIST='1 2 3 4 5 6'
 # Project 1 description
 # List of folders requred to release (First will be used as name)
 NAME1='reference-TE0300 TE-EDK-IP'
@@ -20,6 +20,21 @@ VER2='1.0'
 NAME3='blinkin-TE0300'
 TOOL3='ISE-13.2'
 VER3='1.0'
+
+# Project 4 description
+NAME4='blinkin-TE0320'
+TOOL4='ISE-13.2'
+VER4='1.0'
+
+# Project 5 description
+NAME5='TE0300-MIG-2_3'
+TOOL5=''
+VER5='1.0'
+
+# Project 6 description
+NAME6='TE0320-MIG-2_3'
+TOOL6=''
+VER6='1.0'
 
 ############# Do not edit below this line !!!
 SUBVER=`git rev-parse --short HEAD`
