@@ -46,19 +46,6 @@ Net fpga_0_SPI_FLASH_SS_pin<0> IOSTANDARD = LVCMOS33;
 Net USB_IFCLK_pin TNM_Net = USB_IFCLK_pin;
 TIMESPEC TS_USB_IFCLK_pin = PERIOD USB_IFCLK_pin 20833 ps;
 
-# FX2 timing constrains
-NET "USB_FD_pin<*>" 			OFFSET =  IN   9 ns BEFORE "USB_IFCLK_pin" RISING;
-TIMESPEC TS_B2P = FROM RAMS TO PADS 10 ns;
-NET "USB_FLAGB_pin" 			OFFSET =  IN  10 ns BEFORE "USB_IFCLK_pin" RISING;
-NET "USB_FLAGD_pin" 			OFFSET =  IN  10 ns BEFORE "USB_IFCLK_pin" RISING;
-NET "USB_SLWR_pin" 				OFFSET = OUT   9 ns AFTER  "USB_IFCLK_pin" RISING;
-# USB_SLRD_pin drived from flip-flop in OPAD, so there is maximum that you can get from this device
-NET "USB_SLRD_pin" 			OFFSET = OUT 7.4 ns AFTER  "USB_IFCLK_pin" RISING;	# If you don't use DCM
-#NET "USB_SLRD_pin" 				OFFSET = OUT 5.7 ns AFTER  "USB_IFCLK_pin" RISING;	# If you use DCM
-NET "USB_SLOE_pin" 				OFFSET = OUT   9 ns AFTER  "USB_IFCLK_pin" RISING;
-NET "USB_PKTEND_pin" 			OFFSET = OUT   9 ns AFTER  "USB_IFCLK_pin" RISING;
-NET "USB_FIFOADR_pin<*>" 	OFFSET = OUT   9.5 ns AFTER  "USB_IFCLK_pin" RISING;
-
 Net USB_*_pin*  IOSTANDARD = LVCMOS33;
 
 #I2C connections
@@ -92,8 +79,8 @@ Net  USB_FD_pin<7>        LOC = H5;
 
 
 #### Module DDR_SDRAM constraints
-Net fpga_0_DDR_SDRAM_DDR_DQ<*> IOSTANDARD = SSTL2_I;
-Net fpga_0_DDR_SDRAM_DDR_DQ<*> PULLUP;
+Net fpga_0_DDR_SDRAM_DDR_DQS*> IOSTANDARD = SSTL2_I;
+Net fpga_0_DDR_SDRAM_DDR_DQS<*> PULLUP;
 
 Net fpga_0_DDR_SDRAM_DDR_Clk_pin LOC=C18;
 Net fpga_0_DDR_SDRAM_DDR_Clk_pin IOSTANDARD = DIFF_SSTL2_I;

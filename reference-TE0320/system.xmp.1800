@@ -5,9 +5,9 @@ IntStyle: default
 Flow: ise
 ModuleSearchPath: ../TE-EDK-IP/
 MHS File: system.mhs
-Architecture: spartan3e
-Device: xc3s1600e
-Package: fg320
+Architecture: spartan3adsp
+Device: xc3sd1800a
+Package: fg676
 SpeedGrade: -4
 UserCmd1: 
 UserCmd1Type: 0
@@ -25,5 +25,5 @@ UcfFile: data/system.ucf
 EnableParTimingError: 1
 ShowLicenseDialog: 1
 Processor: microblaze_0
-ElfImp: SDK/SDK_Workspace/demo/Release/demo.elf
+ElfImp: SDK/SDK_Workspace/demo/Debug/demo.elf
 ElfSim: 

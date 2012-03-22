@@ -3,11 +3,11 @@ XmpVersion: 13.2
 VerMgmt: 13.2
 IntStyle: default
 Flow: ise
-ModuleSearchPath: ../../../../IpCores-ISE
+ModuleSearchPath: ../TE-EDK-IP/
 MHS File: system.mhs
-Architecture: spartan3adsp
-Device: xc3sd3400a
-Package: fg676
+Architecture: spartan3e
+Device: xc3s1200e
+Package: fg320
 SpeedGrade: -4
 UserCmd1: 
 UserCmd1Type: 0
@@ -25,5 +25,5 @@ UcfFile: data/system.ucf
 EnableParTimingError: 1
 ShowLicenseDialog: 1
 Processor: microblaze_0
-ElfImp: 
+ElfImp: SDK/SDK_Workspace/demo/Release/demo.elf
 ElfSim: 

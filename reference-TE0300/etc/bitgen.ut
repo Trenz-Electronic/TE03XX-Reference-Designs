@@ -1,7 +1,7 @@
 -g CclkPin:PULLUP
 -g TdoPin:PULLNONE
 -g DonePin:PULLUP
--g StartUpClk:JTAGCLK
+-g StartUpClk:CClk
 -g ProgPin:PULLUP
 -g TckPin:PULLUP
 -g TdiPin:PULLUP

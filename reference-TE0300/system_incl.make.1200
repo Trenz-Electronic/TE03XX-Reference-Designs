@@ -17,7 +17,7 @@ MHSFILE = system.mhs
 
 FPGA_ARCH = spartan3e
 
-DEVICE = xc3s1600efg320-4
+DEVICE = xc3s1200efg320-4
 
 LANGUAGE = vhdl
 GLOBAL_SEARCHPATHOPT = 
