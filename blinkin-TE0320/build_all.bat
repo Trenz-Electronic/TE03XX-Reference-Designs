@@ -5,7 +5,7 @@ set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 
 rem Run 1800 version build
 xtclsh blinker-TE0320-1800.tcl rebuild_project
-bitgen -intstyle ise -f blinker.ut blinker.ncd
+bitgen -intstyle ise -f blinker.ncd
 promgen -w -u 0 blinker.bit -o TE0320-1800.mcs
 promgen -w -p bin -u 0 blinker.bit -o fpga.bin
 copy blinker.bit TE0320-1800.bit
@@ -29,7 +29,7 @@ rem Clean
 
 rem Run 3400 version build
 xtclsh blinker-TE0320-3400.tcl rebuild_project
-bitgen -intstyle ise -f blinker.ut blinker.ncd
+bitgen -intstyle ise -f blinker.ncd
 promgen -w -u 0 blinker.bit -o TE0320-3400.mcs
 promgen -w -p bin -u 0 blinker.bit -o fpga.bin
 copy blinker.bit TE0320-3400.bit

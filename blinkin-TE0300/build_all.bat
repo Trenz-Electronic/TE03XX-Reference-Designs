@@ -18,7 +18,7 @@ rem Clean
 @del /F /q blinkin.bgn blinkin.bit blinkin.bld blinkin.cmd_log blinkin.drc blinkin.lso
 @del /F /q blinkin.ncd blinkin.ngc blinkin.ngd blinkin.ngr blinkin.pad blinkin.par
 @del /F /q blinkin.pcf blinkin.prj blinkin.ptwx blinkin.stx blinkin.syr blinkin.twr
-@del /F /q blinkin.twx blinkin.unroutes blinkin.ut blinkin.xpi blinkin.xst
+@del /F /q blinkin.twx blinkin.unroutes blinkin.xpi blinkin.xst
 @del /F /q blinkin_map.map blinkin_map.mrp blinkin_map.ncd blinkin_map.ngm
 @del /F /q blinkin_map.xrpt blinkin_ngdbuild.xrpt blinkin_pad.csv blinkin_pad.txt
 @del /F /q blinkin_par.xrpt blinkin_summary.html blinkin_summary.xml blinkin_usage.xml
@@ -41,7 +41,7 @@ rem Clean
 @del /F /q blinkin.bgn blinkin.bit blinkin.bld blinkin.cmd_log blinkin.drc blinkin.lso
 @del /F /q blinkin.ncd blinkin.ngc blinkin.ngd blinkin.ngr blinkin.pad blinkin.par
 @del /F /q blinkin.pcf blinkin.prj blinkin.ptwx blinkin.stx blinkin.syr blinkin.twr
-@del /F /q blinkin.twx blinkin.unroutes blinkin.ut blinkin.xpi blinkin.xst
+@del /F /q blinkin.twx blinkin.unroutes blinkin.xpi blinkin.xst
 @del /F /q blinkin_map.map blinkin_map.mrp blinkin_map.ncd blinkin_map.ngm
 @del /F /q blinkin_map.xrpt blinkin_ngdbuild.xrpt blinkin_pad.csv blinkin_pad.txt
 @del /F /q blinkin_par.xrpt blinkin_summary.html blinkin_summary.xml blinkin_usage.xml

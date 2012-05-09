@@ -274,7 +274,7 @@ proc set_process_props {} {
    puts "$myScript: setting process properties..."
 
    project set "Compiled Library Directory" "\$XILINX/<language>/<simulator>"
-   project set "Configuration Rate" "6" -process "Generate Programming File"
+   project set "Configuration Rate" "25" -process "Generate Programming File"
    project set "Number of Clock Buffers" "24" -process "Synthesize - XST"
    project set "Max Fanout" "500" -process "Synthesize - XST"
    project set "Regenerate Core" "Under Current Project Setting" -process "Regenerate Core"
@@ -449,7 +449,7 @@ proc set_process_props {} {
    project set "Timing Mode" "Performance Evaluation" -process "Place & Route"
    project set "Create Binary Configuration File" "false" -process "Generate Programming File"
    project set "Enable Debugging of Serial Mode BitStream" "false" -process "Generate Programming File"
-   project set "Retry Configuration if CRC Error Occurs" "false" -process "Generate Programming File"
+   project set "Retry Configuration if CRC Error Occurs" "true" -process "Generate Programming File"
    project set "MultiBoot: Starting Address for Next Configuration" "0x00000000" -process "Generate Programming File"
    project set "MultiBoot: Use New Mode for Next Configuration" "true" -process "Generate Programming File"
    project set "Enable Filter on Suspend Input" "Please use the ENABLE_SUSPEND implementation constraint." -process "Generate Programming File"

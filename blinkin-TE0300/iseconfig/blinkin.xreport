@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2012-02-23T18:03:38</DateModified>
+  <DateModified>2012-05-09T19:26:55</DateModified>
   <ModuleName>blinkin</ModuleName>
   <SummaryTimeStamp>2012-02-23T15:48:37</SummaryTimeStamp>
-  <SavedFilePath>C:/TEMP/blinkin-TE0300/iseconfig/blinkin.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/TEMP/blinkin-TE0300\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/blinkin-TE0300/iseconfig/blinkin.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/blinkin-TE0300\</ImplementationReportsDirectory>
   <DateInitialized>2012-02-23T15:43:35</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
