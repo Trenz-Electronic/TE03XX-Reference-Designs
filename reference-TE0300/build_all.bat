@@ -45,6 +45,7 @@ copy PREPARE_FWU\bin\Bootload.ini .\
 
 @rem Generate FWU for 1200
 promgen -w -p bin -u 0 download_1200.bit -o fpga.bin
+copy fpga.bin TE0300-1200.bin
 zip -q TE0300-1200.zip fpga.bin Bootload.ini usb.bin
 move TE0300-1200.zip TE0300-1200.fwu
 @rem Remove logs
@@ -52,6 +53,7 @@ move TE0300-1200.zip TE0300-1200.fwu
 
 @rem Generate FWU for 1600
 promgen -w -p bin -u 0 download_1600.bit -o fpga.bin
+copy fpga.bin TE0300-1600.bin
 zip -q TE0300-1600.zip fpga.bin Bootload.ini usb.bin
 move TE0300-1600.zip TE0300-1600.fwu
 @rem Remove logs
