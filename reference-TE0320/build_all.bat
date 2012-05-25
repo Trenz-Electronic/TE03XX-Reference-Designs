@@ -45,6 +45,7 @@ copy PREPARE_FWU\bin\Bootload.ini .\
 
 @rem Generate FWU for 1800
 promgen -w -p bin -u 0 download_1800.bit -o fpga.bin
+copy fpga.bin TE0320-1800.bin
 zip -q TE0320-1800.zip fpga.bin Bootload.ini usb.bin
 move TE0320-1800.zip TE0320-1800.fwu
 @rem Remove logs
@@ -52,6 +53,7 @@ move TE0320-1800.zip TE0320-1800.fwu
 
 @rem Generate FWU for 3400
 promgen -w -p bin -u 0 download_3400.bit -o fpga.bin
+copy fpga.bin TE0320-3400.bin
 zip -q TE0320-3400.zip fpga.bin Bootload.ini usb.bin
 move TE0320-3400.zip TE0320-3400.fwu
 @rem Remove logs

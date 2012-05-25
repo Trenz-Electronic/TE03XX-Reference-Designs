@@ -22,8 +22,8 @@ HdlLang: VHDL
 SimModel: BEHAVIORAL
 ExternalMemSim: 0
 UcfFile: data/system.ucf
-EnableParTimingError: 1
+EnableParTimingError: 0
 ShowLicenseDialog: 1
 Processor: microblaze_0
-ElfImp: SDK/SDK_Workspace/demo/Debug/demo.elf
-ElfSim: 
+ElfImp: sw/demo.elf
+ElfSim: sw/demo.elf

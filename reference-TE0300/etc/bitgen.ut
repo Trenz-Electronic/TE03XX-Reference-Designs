@@ -2,7 +2,7 @@
 -g TdoPin:PULLNONE
 -g DonePin:PULLNONE
 -g DriveDone:Yes
--g StartUpClk:JTAGCLK
+-g StartUpClk:CCLK
 -g ProgPin:PULLUP
 -g TckPin:PULLUP
 -g TdiPin:PULLUP
