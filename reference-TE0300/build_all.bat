@@ -40,25 +40,32 @@ set XILINX=C:\Xilinx\13.2\ISE_DS\ISE
 set XILINX_DSP=%XILINX%
 set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @rem Copy needed files
-copy PREPARE_FWU\bin\usb.bin .\
-copy PREPARE_FWU\bin\Bootload.ini .\
+@copy PREPARE_FWU\bin\usb.bin .\
+@copy PREPARE_FWU\bin\Bootload.ini .\
 
 @rem Generate FWU for 1200
-promgen -w -p bin -u 0 download_1200.bit -o fpga.bin
-copy fpga.bin TE0300-1200.bin
-zip -q TE0300-1200.zip fpga.bin Bootload.ini usb.bin
-move TE0300-1200.zip TE0300-1200.fwu
+@copy download_1200.bit fpga.bit
+@impact -batch etc\bit2bin.cmd
+@copy fpga.bin TE0300-1200.bin
+@impact -batch etc\bit2mcs.cmd
+@copy fpga.mcs TE0300-1200.mcs
+@zip -q TE0300-1200.zip fpga.bin Bootload.ini usb.bin
+@move TE0300-1200.zip TE0300-1200.fwu
 @rem Remove logs
 @del fpga.bin fpga.prm fpga.cfi
 
 @rem Generate FWU for 1600
-promgen -w -p bin -u 0 download_1600.bit -o fpga.bin
-copy fpga.bin TE0300-1600.bin
-zip -q TE0300-1600.zip fpga.bin Bootload.ini usb.bin
-move TE0300-1600.zip TE0300-1600.fwu
+@copy download_1600.bit fpga.bit
+@impact -batch etc\bit2bin.cmd
+@copy fpga.bin TE0300-1600.bin
+@impact -batch etc\bit2mcs.cmd
+@copy fpga.mcs TE0300-1600.mcs
+@zip -q TE0300-1600.zip fpga.bin Bootload.ini usb.bin
+@move TE0300-1600.zip TE0300-1600.fwu
 @rem Remove logs
 @del fpga.bin fpga.prm fpga.cfi
 
 @rem Remove files
 @del usb.bin 
 @del Bootload.ini
+@del _impactbatch.log
