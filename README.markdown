@@ -39,3 +39,4 @@ system.xmp using "Xilinx Platform Studio".
 * TE0300-MIG-2_3 - MIG for TE0300 module
 * TE0320-MIG-2_3 - MIG for TE0320 module
 * vcom-TE0300 - Virtual COM port ecample project for TE0300 module
+* vcom-TE0320 - Virtual COM port ecample project for TE0320 module
