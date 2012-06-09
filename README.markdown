@@ -38,3 +38,4 @@ system.xmp using "Xilinx Platform Studio".
 * TE-EDK-IP - subproject which contain cores used in reference projects
 * TE0300-MIG-2_3 - MIG for TE0300 module
 * TE0320-MIG-2_3 - MIG for TE0320 module
+* vcom-TE0300 - Virtual COM port ecample project for TE0300 module

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Projects\Trenz\FX2_vcom\vcom-TE0300\top.ncd
+OUTFILE=C:\Projects\Trenz\FX2_vcom\vcom-TE0300\top.bit
+FAMILY=Spartan3E
+PART=xc3s1600e-4fg320
+WORKINGDIR=C:\Projects\Trenz\FX2_vcom\vcom-TE0300
+LICENSE=ISE
+USER_INFO=No user information available.
