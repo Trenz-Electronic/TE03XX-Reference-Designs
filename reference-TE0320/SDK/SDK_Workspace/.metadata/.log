@@ -1,0 +1,33 @@
+!SESSION 2012-09-05 19:38:05.192 -----------------------------------------------
+eclipse.buildId=Release 13.2 Build SDK_O.61xd
+java.version=1.6.0_21
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-09-05 19:40:19.934
+!MESSAGE Indexed 'standalone_bsp_0' (0 sources, 8 headers) in 0.26 sec: 0 declarations; 0 references; 8 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-09-05 19:41:42.119
+!MESSAGE Indexed 'demo' (0 sources, 21 headers) in 0.20 sec: 153 declarations; 291 references; 3 unresolved inclusions; 0 syntax errors; 1 unresolved names (0.22%)
+
+!ENTRY com.xilinx.sdk.sw 4 0 2012-09-05 20:20:04.128
+!MESSAGE The Hardware Project referenced by this BSP (standalone_bsp_0) was not found in this workspace. As a result, this BSP will not build properly. To fix this error, please import the associated hardware project or recreate a new BSP targeting an existing hardware platform.
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-09-05 20:20:06.221
+!MESSAGE Indexed 'standalone_bsp_0' (76 sources, 61 headers) in 2.02 sec: 2,069 declarations; 12,363 references; 18 unresolved inclusions; 0 syntax errors; 91 unresolved names (0.63%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-09-05 20:20:06.774
+!MESSAGE Indexed 'demo' (4 sources, 44 headers) in 0.53 sec: 1,177 declarations; 1,425 references; 3 unresolved inclusions; 0 syntax errors; 14 unresolved names (0.54%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-09-05 20:22:05.144
+!MESSAGE Indexed 'standalone_bsp_0' (0 sources, 8 headers) in 0.02 sec: 0 declarations; 0 references; 8 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+!SESSION 2012-09-05 20:26:24.134 -----------------------------------------------
+eclipse.buildId=Release 13.2 Build SDK_O.61xd
+java.version=1.6.0_21
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-09-05 20:29:52.667
+!MESSAGE Indexed 'demo' (4 sources, 43 headers) in 0.96 sec: 1,166 declarations; 1,422 references; 3 unresolved inclusions; 0 syntax errors; 10 unresolved names (0.38%)
