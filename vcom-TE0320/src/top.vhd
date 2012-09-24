@@ -76,7 +76,7 @@ signal usb_clk			: STD_LOGIC;
 signal usb_empty		: STD_LOGIC;
 signal usb_full			: STD_LOGIC;
 type sm_state_type is (ST_IDLE, ST_READ, ST_READ_END, ST_WRITE);
-signal sm_state			: sm_state_type;
+signal sm_state			: sm_state_type := ST_IDLE;
 signal rd_data			: STD_LOGIC_VECTOR( 7 downto 0);
 -------------------------------------------------------------------------------
 begin
@@ -96,6 +96,7 @@ process(usb_clk,sys_rst)
 begin
 	if(sys_rst = '0')then
 		fd_t_drv		<= '1';
+		sm_state		<= ST_IDLE;
 	elsif(usb_clk = '1' and usb_clk'event)then
 		case sm_state is
 			when ST_IDLE => 
