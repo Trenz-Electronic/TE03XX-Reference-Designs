@@ -23,7 +23,7 @@
 -- Engineer: Oleksandr Kiyenko (a.kienko@gmail.com)
 -- 
 -- Create Date:    22:36:35 05/16/2012 
--- Design Name:    vcom-TE0320
+-- Design Name:    vcom-TE0300
 -- Module Name:    top - Behavioral 
 -- Project Name:   vcom
 -- Target Devices: all TE USB modules
@@ -78,13 +78,13 @@ signal usb_full			: STD_LOGIC;
 type sm_state_type is (ST_IDLE, ST_READ, ST_READ_END, ST_WRITE);
 signal sm_state			: sm_state_type := ST_IDLE;
 signal rd_data			: STD_LOGIC_VECTOR( 7 downto 0);
+signal led_cnt			: STD_LOGIC_VECTOR(26 downto 0);
 -------------------------------------------------------------------------------
 begin
 -------------------------------------------------------------------------------
 usb_clk			<= USB_IFCLK_pin;
 usb_empty		<= USB_FLAGA_pin;
 usb_full		<= USB_FLAGB_pin;
-LED				<= USB_FLAGD_pin;
 USB_FD_pin		<= "ZZZZZZZZ" when fd_t_drv = '1' else fd_d_drv;
 USB_SLWR_pin	<= slwr;
 USB_SLRD_pin	<= slrd;
@@ -122,7 +122,7 @@ begin
 				
 			when ST_WRITE =>
 				if(usb_full = DISABLE)then		-- If FX2 FIFO not full
-					fifoadr		<= EP8ADR;		-- Write to EP8
+					fifoadr		<= EP6ADR;		-- Write to EP8
 					fd_t_drv	<= '0';			-- Drive FD bus
 					fd_d_drv	<= rd_data + 1;	-- Data to transmit
 												-- In this example we just add 1
@@ -134,6 +134,16 @@ begin
 		end case;
 	end if;
 end process;
+
+process(sys_clk,sys_rst)
+begin
+	if(sys_rst = '1')then
+		led_cnt	<= (others => '0');
+	elsif(sys_clk = '1' and sys_clk'event)then
+		led_cnt	<= led_cnt + 1;
+	end if;
+end process;
+LED	<= led_cnt(26) and led_cnt(24);
 -------------------------------------------------------------------------------
 end Behavioral;
 -------------------------------------------------------------------------------

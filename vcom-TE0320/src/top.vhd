@@ -38,7 +38,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity top is
 port ( 
 	sys_clk				: in    STD_LOGIC;
-	sys_rst				: in    STD_LOGIC;	-- aclive low
+	sys_rst_n			: in    STD_LOGIC;	-- aclive low
 	LED					: out   STD_LOGIC_VECTOR(3 downto 0);
 	USB_FD_pin			: inout STD_LOGIC_VECTOR(7 downto 0);
 	USB_FLAGA_pin		: in    STD_LOGIC;	-- FlagA = EP2EF
@@ -78,13 +78,13 @@ signal usb_full			: STD_LOGIC;
 type sm_state_type is (ST_IDLE, ST_READ, ST_READ_END, ST_WRITE);
 signal sm_state			: sm_state_type := ST_IDLE;
 signal rd_data			: STD_LOGIC_VECTOR( 7 downto 0);
+signal led_cnt			: STD_LOGIC_VECTOR(26 downto 0);
 -------------------------------------------------------------------------------
 begin
 -------------------------------------------------------------------------------
 usb_clk			<= USB_IFCLK_pin;
 usb_empty		<= USB_FLAGA_pin;
 usb_full		<= USB_FLAGB_pin;
-LED				<= USB_FLAGD_pin & USB_FLAGC_pin & USB_FLAGB_pin & USB_FLAGA_pin;
 USB_FD_pin		<= "ZZZZZZZZ" when fd_t_drv = '1' else fd_d_drv;
 USB_SLWR_pin	<= slwr;
 USB_SLRD_pin	<= slrd;
@@ -92,9 +92,24 @@ USB_SLOE_pin	<= sloe;
 USB_PKTEND_pin	<= pktend;
 USB_FIFOADR_pin	<= fifoadr;
 
-process(usb_clk,sys_rst)
+-- Indication
+process(sys_clk,sys_rst_n)
 begin
-	if(sys_rst = '0')then
+	if(sys_rst_n = '0')then
+		led_cnt	<= (others => '0');
+	elsif(sys_clk = '1' and sys_clk'event)then
+		led_cnt	<= led_cnt + 1;
+	end if;
+end process;
+LED	<= 
+	(led_cnt(23) and led_cnt(24) and led_cnt(25) and led_cnt(26)) &		-- 1
+	(led_cnt(23) and led_cnt(25) and led_cnt(26)) &						-- 2
+	(led_cnt(23) and (led_cnt(24) or led_cnt(25)) and led_cnt(26)) &	-- 3
+	(led_cnt(23) and led_cnt(26));										-- 4
+
+process(usb_clk,sys_rst_n)
+begin
+	if(sys_rst_n = '0')then
 		fd_t_drv		<= '1';
 		sm_state		<= ST_IDLE;
 	elsif(usb_clk = '1' and usb_clk'event)then
@@ -121,7 +136,7 @@ begin
 				
 			when ST_WRITE =>
 				if(usb_full = DISABLE)then		-- If FX2 FIFO not full
-					fifoadr		<= EP8ADR;		-- Write to EP8
+					fifoadr		<= EP6ADR;		-- Write to EP8
 					fd_t_drv	<= '0';			-- Drive FD bus
 					fd_d_drv	<= rd_data + 1;	-- Data to transmit
 												-- In this example we just add 1
