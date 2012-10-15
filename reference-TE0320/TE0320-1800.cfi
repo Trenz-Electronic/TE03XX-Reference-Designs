@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.28xd
+# Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.28xd
+DATE            10/15/2012 - 12:16
+SOURCE          TE0320-1800.mcs
+DEVICE          8192K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x710440D3
+START_ADDRESS   0x00000000 END_ADDRESS 0x000FA2B9 DIRECTION_UP   "download_1800_cclktemp.bit" 3sd1800afg676
