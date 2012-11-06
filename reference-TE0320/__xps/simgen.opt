@@ -1,1 +1,1 @@
- -p spartan3adsp -lang vhdl$(PROJECT_SEARCHPATHOPT) $(GLOBAL_SEARCHPATHOPT) -msg __xps/ise/xmsgprops.lst -s mgm -X C:/Projects/Trenz/repos/TE03XX-Reference-Designs/reference-TE0320/
+ -p spartan3adsp -lang vhdl$(PROJECT_SEARCHPATHOPT) $(GLOBAL_SEARCHPATHOPT) -msg __xps/ise/xmsgprops.lst -s isim

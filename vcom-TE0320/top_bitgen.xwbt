@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Projects\Trenz\FX2_vcom\vcom-TE0320\top.ncd
-OUTFILE=C:\Projects\Trenz\FX2_vcom\vcom-TE0320\top.bit
+INFILE=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\vcom-TE0320\top.ncd
+OUTFILE=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\vcom-TE0320\top.bit
 FAMILY=Spartan-3A DSP
 PART=xc3sd3400a-4fg676
-WORKINGDIR=C:\Projects\Trenz\FX2_vcom\vcom-TE0320
+WORKINGDIR=C:\Projects\Trenz\repos\TE03XX-Reference-Designs\vcom-TE0320
 LICENSE=ISE
-USER_INFO=No user information available.
+USER_INFO=16020553_207303401_209847264_403

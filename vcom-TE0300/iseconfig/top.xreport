@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2012-06-07T13:56:05</DateModified>
+  <DateModified>2012-10-14T13:56:03</DateModified>
   <ModuleName>top</ModuleName>
-  <SummaryTimeStamp>2012-06-07T13:55:55</SummaryTimeStamp>
-  <SavedFilePath>C:/Projects/Trenz/FX2_vcom/vcom-TE0300/iseconfig/top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Projects/Trenz/FX2_vcom/vcom-TE0300\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2012-10-14T12:59:41</SummaryTimeStamp>
+  <SavedFilePath>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/vcom-TE0300/iseconfig/top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/vcom-TE0300\</ImplementationReportsDirectory>
   <DateInitialized>2012-06-07T11:33:58</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

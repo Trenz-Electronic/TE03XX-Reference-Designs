@@ -11,3 +11,4 @@
 -g Security:NONE
 -g ConfigRate:12
 -g Persist:No
+-g Binary:Yes
