@@ -1,5 +1,5 @@
 -p
-xc3s1200efg320-4
+xc3s1600efg320-4
 -lang
 vhdl
 -lp
