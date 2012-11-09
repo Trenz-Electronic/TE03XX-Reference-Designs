@@ -424,7 +424,7 @@ proc set_process_props {} {
    project set "Verilog Include Directories" "" -process "Synthesize - XST"
    project set "Verilog 2001" "true" -process "Synthesize - XST"
    project set "Verilog Macros" "" -process "Synthesize - XST"
-   project set "Work Directory" "C:/Projects/Trenz/repos/TE03XX-Reference-Designs/blinkin-TE0300/xst" -process "Synthesize - XST"
+   project set "Work Directory" "B:/GIT/TE03XX-Reference-Designs/blinkin-TE0300/xst" -process "Synthesize - XST"
    project set "Write Timing Constraints" "false" -process "Synthesize - XST"
    project set "Other XST Command Line Options" "" -process "Synthesize - XST"
    project set "Auto Implementation Compile Order" "true"

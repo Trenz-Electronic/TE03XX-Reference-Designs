@@ -21,7 +21,7 @@ DEVICE = xc3sd1800afg676-4
 
 LANGUAGE = vhdl
 GLOBAL_SEARCHPATHOPT = 
-PROJECT_SEARCHPATHOPT =  -lp C:/Projects/Trenz/repos/TE03XX-Reference-Designs/TE-EDK-IP/
+PROJECT_SEARCHPATHOPT =  -lp B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/
 
 SEARCHPATHOPT = $(PROJECT_SEARCHPATHOPT) $(GLOBAL_SEARCHPATHOPT)
 
@@ -57,7 +57,7 @@ TIMING_SIM_SCRIPT = simulation/timing/$(SYSTEM)_setup.do
 
 DEFAULT_SIM_SCRIPT = $(BEHAVIORAL_SIM_SCRIPT)
 
-SIMGEN_OPTIONS = -p $(DEVICE) -lang $(LANGUAGE) $(SEARCHPATHOPT) $(BRAMINIT_ELF_SIM_FILE_ARGS) -msg __xps/ise/xmsgprops.lst -s mgm -X C:/Projects/Trenz/repos/TE03XX-Reference-Designs/reference-TE0320/
+SIMGEN_OPTIONS = -p $(DEVICE) -lang $(LANGUAGE) $(SEARCHPATHOPT) $(BRAMINIT_ELF_SIM_FILE_ARGS) -msg __xps/ise/xmsgprops.lst -s mgm -X B:/GIT/TE03XX-Reference-Designs/reference-TE0320/
 
 
 CORE_STATE_DEVELOPMENT_FILES = C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd \
@@ -72,10 +72,10 @@ C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_
 C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plb_slave_attachment.vhd \
 C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plbv46_slave_single.vhd \
 C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/interrupt_control_v2_01_a/hdl/vhdl/interrupt_control.vhd \
-C:/Projects/Trenz/repos/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/fx2_core.vhd \
-C:/Projects/Trenz/repos/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/fx2_engine.vhd \
-C:/Projects/Trenz/repos/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/user_logic.vhd \
-C:/Projects/Trenz/repos/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/xps_fx2.vhd
+B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/fx2_core.vhd \
+B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/fx2_engine.vhd \
+B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/user_logic.vhd \
+B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/xps_fx2.vhd
 
 WRAPPER_NGC_FILES = implementation/microblaze_0_wrapper.ngc \
 implementation/mb_plb_wrapper.ngc \

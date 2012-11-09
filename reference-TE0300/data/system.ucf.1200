@@ -32,13 +32,11 @@ Net sys_rst_pin TIG;
 
 ## IO Devices constraints
 
-#### Module RS232 constraints
 
-Net fpga_0_RS232_RX_pin LOC=B13; #EXP0
-Net fpga_0_RS232_RX_pin IOSTANDARD = LVCMOS33;
-Net fpga_0_RS232_RX_pin PULLUP;
-Net fpga_0_RS232_TX_pin LOC=B14; #EXP2
-Net fpga_0_RS232_TX_pin IOSTANDARD = LVCMOS33;
+#### Module RS232 constraints
+NET fpga_0_RS232_TX_pin LOC = R5 | IOSTANDARD = LVCMOS33; # B2_L04_P = TE0303 J1:31
+NET fpga_0_RS232_RX_pin LOC = P6 | IOSTANDARD = LVCMOS33; # B2_L05_N = TE0303 J1:33
+NET fpga_0_RS232_RX_pin PULLUP;
 
 #### Module LED constraints
 

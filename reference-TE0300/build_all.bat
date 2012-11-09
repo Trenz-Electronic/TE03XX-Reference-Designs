@@ -1,5 +1,5 @@
 rem Configure environment
-call C:\Xilinx\13.2\ISE_DS\settings64.bat
+call C:\Xilinx\13.3\ISE_DS\settings64.bat
 
 @rem Prepare 1200 project
 @copy /y system.xmp.1200 system.xmp
@@ -36,12 +36,13 @@ make -f system.make hwclean
 
 @rem Making FWUs
 @rem Configure environment
-set XILINX=C:\Xilinx\13.2\ISE_DS\ISE
+set XILINX=C:\Xilinx\13.3\ISE_DS\ISE
 set XILINX_DSP=%XILINX%
 set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @rem Copy needed files
-@copy PREPARE_FWU\bin\usb.bin .\
-@copy PREPARE_FWU\bin\Bootload.ini .\
+@copy ..\..\TE-USB-Suite\TE_USB_FX2.firmware\ready_for_download\current_te.iic PREPARE_FWU\usb.bin
+@copy PREPARE_FWU\usb.bin .\
+@copy PREPARE_FWU\Bootload.ini .\
 
 @rem Generate FWU for 1200
 @copy download_1200.bit fpga.bit
@@ -49,7 +50,7 @@ set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @copy fpga.bin TE0300-1200.bin
 @impact -batch etc\bit2mcs.cmd
 @copy fpga.mcs TE0300-1200.mcs
-@zip -q TE0300-1200.zip fpga.bin Bootload.ini usb.bin
+@PREPARE_FWU\zip -q TE0300-1200.zip fpga.bin Bootload.ini usb.bin
 @move TE0300-1200.zip TE0300-1200.fwu
 @rem Remove logs
 @del fpga.bin fpga.prm fpga.cfi
@@ -60,7 +61,7 @@ set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @copy fpga.bin TE0300-1600.bin
 @impact -batch etc\bit2mcs.cmd
 @copy fpga.mcs TE0300-1600.mcs
-@zip -q TE0300-1600.zip fpga.bin Bootload.ini usb.bin
+@PREPARE_FWU\zip -q TE0300-1600.zip fpga.bin Bootload.ini usb.bin
 @move TE0300-1600.zip TE0300-1600.fwu
 @rem Remove logs
 @del fpga.bin fpga.prm fpga.cfi

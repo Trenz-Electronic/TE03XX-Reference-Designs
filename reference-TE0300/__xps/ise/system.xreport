@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2012-11-06T08:17:40</DateModified>
+  <DateModified>2012-11-09T12:06:13</DateModified>
   <ModuleName>system</ModuleName>
-  <SummaryTimeStamp>2012-11-06T08:17:39</SummaryTimeStamp>
-  <SavedFilePath>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/reference-TE0300/__xps/ise/system.xreport</SavedFilePath>
+  <SummaryTimeStamp>2012-11-09T12:06:13</SummaryTimeStamp>
+  <SavedFilePath>B:/GIT/TE03XX-Reference-Designs/reference-TE0300/__xps/ise/system.xreport</SavedFilePath>
   <FilterFile>filter.filter</FilterFile>
-  <SavedFilterFilePath>C:/Projects/Trenz/repos/TE03XX-Reference-Designs/reference-TE0300/__xps/ise</SavedFilterFilePath>
+  <SavedFilterFilePath>B:/GIT/TE03XX-Reference-Designs/reference-TE0300/__xps/ise</SavedFilterFilePath>
   <DateInitialized>2012-03-22T10:29:32</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

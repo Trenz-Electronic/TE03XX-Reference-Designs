@@ -1,8 +1,8 @@
 rem Configure environment
-call C:\Xilinx\13.2\ISE_DS\settings64.bat
+call C:\Xilinx\13.3\ISE_DS\settings64.bat
 
 @rem Configure environment
-set XILINX=C:\Xilinx\13.2\ISE_DS\ISE
+set XILINX=C:\Xilinx\13.3\ISE_DS\ISE
 set XILINX_DSP=%XILINX%
 set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 

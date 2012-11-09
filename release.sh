@@ -5,15 +5,16 @@ REPOSITORY=TE03XX-Reference-Designs
 PROJECT_LIST='1 2 3 4 5 6 7 8'
 # Project 1 description
 # List of folders requred to release (First will be used as name)
+
 NAME1='reference-TE0300 TE-EDK-IP'
 # Tool used to build
-TOOL1='EDK-13.2'
+TOOL1='EDK-13.3'
 # Project Version
 VER1='1.0'
 
 # Project 2 description
 NAME2='reference-TE0320 TE-EDK-IP'
-TOOL2='EDK-13.2'
+TOOL2='EDK-13.3'
 VER2='1.0'
 
 # Project 3 description

@@ -1,2 +1,2 @@
-make -k clean 
-rm -rf microblaze_0
+make -k all 
+'Finished building libraries'
