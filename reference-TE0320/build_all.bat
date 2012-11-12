@@ -12,7 +12,7 @@ make -f system.make init_bram
 @rem Copy result
 copy /y implementation\system.bit system_1800.bit
 copy /y implementation\system_bd.bmm system_bd_1800.bmm
-copy /y implementation\download.bit download_1800.bit
+copy /y implementation\download.bit TE0320_1800.bit
 @rem Clean project
 make -f system.make hwclean
 
@@ -27,7 +27,7 @@ make -f system.make init_bram
 @rem Copy result
 copy /y implementation\system.bit system_3400.bit
 copy /y implementation\system_bd.bmm system_bd_3400.bmm
-copy /y implementation\download.bit download_3400.bit
+copy /y implementation\download.bit TE0320_3400.bit
 @rem Clean project
 make -f system.make hwclean
 
@@ -36,29 +36,33 @@ make -f system.make hwclean
 
 @rem Making FWUs
 @rem Configure environment
-set XILINX=C:\Xilinx\13.2\ISE_DS\ISE
-set XILINX_DSP=%XILINX%
-set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
+@set XILINX=C:\Xilinx\13.2\ISE_DS\ISE
+@set XILINX_DSP=%XILINX%
+@set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @rem Copy needed files
-copy PREPARE_FWU\bin\usb.bin .\
-copy PREPARE_FWU\bin\Bootload.ini .\
+@copy ..\..\TE_USB_FX2.firmware\ready_for_download\current_te.iic PREPARE_FWU\usb.bin
+@copy PREPARE_FWU\usb.bin .\
+@copy PREPARE_FWU\Bootload.ini .\
 
 @rem Generate FWU for 1800
-promgen -w -p bin -u 0 download_1800.bit -o fpga.bin
-copy fpga.bin TE0320-1800.bin
-zip -q TE0320-1800.zip fpga.bin Bootload.ini usb.bin
-move TE0320-1800.zip TE0320-1800.fwu
+@copy TE0320_1800.bit fpga.bit
+@impact -batch etc\bit2bin.cmd
+@copy fpga.bin TE0320-1800.bin
+@PREPARE_FWU\zip -q TE0320-1800.zip fpga.bin Bootload.ini usb.bin
+@move TE0320-1800.zip TE0320-1800.fwu
 @rem Remove logs
-@del fpga.bin fpga.prm fpga.cfi
+@del fpga.bin fpga.prm fpga.cfi fpga.bit
 
 @rem Generate FWU for 3400
-promgen -w -p bin -u 0 download_3400.bit -o fpga.bin
-copy fpga.bin TE0320-3400.bin
-zip -q TE0320-3400.zip fpga.bin Bootload.ini usb.bin
-move TE0320-3400.zip TE0320-3400.fwu
+@copy TE0320_3400.bit fpga.bit
+@impact -batch etc\bit2bin.cmd
+@copy fpga.bin TE0320-3400.bin
+@PREPARE_FWU\zip -q TE0320-3400.zip fpga.bin Bootload.ini usb.bin
+@move TE0320-3400.zip TE0320-3400.fwu
 @rem Remove logs
-@del fpga.bin fpga.prm fpga.cfi
+@del fpga.bin fpga.prm fpga.cfi fpga.bit
 
 @rem Remove files
 @del usb.bin 
 @del Bootload.ini
+@del _impactbatch.log

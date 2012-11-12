@@ -1,0 +1,22 @@
+microblaze_0
+BOOTLOADER_SOURCES = bootloader/main.c bootloader/spi_flash.c 
+BOOTLOADER_HEADERS = bootloader/spi_flash.h bootloader/xspi_l.h 
+BOOTLOADER_CC = mb-gcc
+BOOTLOADER_CC_SIZE = mb-size
+BOOTLOADER_CC_OPT = -O2
+BOOTLOADER_CFLAGS = 
+BOOTLOADER_CC_SEARCH = # -B
+BOOTLOADER_LIBPATH = -L./microblaze_0/lib/ # -L
+BOOTLOADER_INCLUDES = -I./microblaze_0/include/  -Ibootloader/ # -I
+BOOTLOADER_LFLAGS = # -l
+BOOTLOADER_LINKER_SCRIPT = 
+BOOTLOADER_CC_DEBUG_FLAG =  -g 
+BOOTLOADER_CC_PROFILE_FLAG = # -pg
+BOOTLOADER_CC_GLOBPTR_FLAG= # -mxl-gp-opt
+BOOTLOADER_MODE = executable
+BOOTLOADER_LIBG_OPT = -$(BOOTLOADER_MODE) microblaze_0
+BOOTLOADER_CC_INFERRED_FLAGS= -mno-xl-soft-mul -mxl-pattern-compare -mcpu=v8.00.b 
+BOOTLOADER_CC_START_ADDR_FLAG=  # -Wl,-defsym -Wl,_TEXT_START_ADDR=
+BOOTLOADER_CC_STACK_SIZE_FLAG=  # -Wl,-defsym -Wl,_STACK_SIZE=
+BOOTLOADER_CC_HEAP_SIZE_FLAG=  # -Wl,-defsym -Wl,_HEAP_SIZE=
+                  $(BOOTLOADER_CC_INFERRED_FLAGS)  \

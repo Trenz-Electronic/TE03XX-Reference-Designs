@@ -1,3 +1,3 @@
 PROCESSOR=microblaze_0
-REPOSITORIES=-lp C:/Projects/Trenz/repos/TE03XX-Reference-Designs/TE-EDK-IP
+REPOSITORIES=-lp B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP
 HWSPEC=../reference-TE0320_hw_platform/system.xml

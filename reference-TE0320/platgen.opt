@@ -3,7 +3,7 @@ xc3sd3400afg676-4
 -lang
 vhdl
 -lp
-C:/Projects/Trenz/repos/TE03XX-Reference-Designs/TE-EDK-IP/
+B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/
 -msg
 __xps/ise/xmsgprops.lst
 system.mhs

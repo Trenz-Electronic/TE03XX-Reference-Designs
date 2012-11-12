@@ -12,7 +12,7 @@ make -f system.make init_bram
 @rem Copy result
 copy /y implementation\system.bit system_1200.bit
 copy /y implementation\system_bd.bmm system_bd_1200.bmm
-copy /y implementation\download.bit download_1200.bit
+copy /y implementation\download.bit TE0300_1200.bit
 @rem Clean project
 make -f system.make hwclean
 
@@ -27,7 +27,7 @@ make -f system.make init_bram
 @rem Copy result
 copy /y implementation\system.bit system_1600.bit
 copy /y implementation\system_bd.bmm system_bd_1600.bmm
-copy /y implementation\download.bit download_1600.bit
+copy /y implementation\download.bit TE0300_1600.bit
 @rem Clean project
 make -f system.make hwclean
 
@@ -45,7 +45,7 @@ set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @copy PREPARE_FWU\Bootload.ini .\
 
 @rem Generate FWU for 1200
-@copy download_1200.bit fpga.bit
+@copy TE0300_1200.bit fpga.bit
 @impact -batch etc\bit2bin.cmd
 @copy fpga.bin TE0300-1200.bin
 @impact -batch etc\bit2mcs.cmd
@@ -56,7 +56,7 @@ set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @del fpga.bin fpga.prm fpga.cfi
 
 @rem Generate FWU for 1600
-@copy download_1600.bit fpga.bit
+@copy TE0300_1600.bit fpga.bit
 @impact -batch etc\bit2bin.cmd
 @copy fpga.bin TE0300-1600.bin
 @impact -batch etc\bit2mcs.cmd

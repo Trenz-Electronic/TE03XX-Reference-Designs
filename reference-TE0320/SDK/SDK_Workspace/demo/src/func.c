@@ -1,9 +1,10 @@
 #include "func.h"
 
 Xuint32 timeout_count; //global timeout counter
+volatile Xuint32 slip_cnt;
 
 void cycsleep(Xuint32 Cycles){
-  for(Cycles=Cycles; Cycles>0 ;Cycles--);
+  for(slip_cnt = Cycles; slip_cnt > 0 ; slip_cnt--);
 }
 
 //====================================================
@@ -104,4 +105,42 @@ void caching(Xuint8 Enable) {
 		#endif
 	}
 }
+
+//-----------------------------------------------------------------------------
+// Blink mode
+//-----------------------------------------------------------------------------
+void set_led_mode(Xuint8 mode){
+	Xuint32 pause = 700000;
+	switch(mode){
+		default:
+		case 1:
+			while (1){
+				XIo_Out32(XPAR_LED_BASEADDR,0xF); cycsleep(pause);	// Enable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause);	// Disable LEDs
+			}
+			break;
+		case 2:
+			while (1){
+				XIo_Out32(XPAR_LED_BASEADDR,0xF); cycsleep(pause);	// Enable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause);	// Disable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0xF); cycsleep(pause);	// Enable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause);	// Disable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause * 4);	// Disable LEDs
+			}
+			break;
+		case 3:
+			while (1){
+				XIo_Out32(XPAR_LED_BASEADDR,0xF); cycsleep(pause);	// Enable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause);	// Disable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0xF); cycsleep(pause);	// Enable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause);	// Disable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0xF); cycsleep(pause);	// Enable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause);	// Disable LEDs
+				XIo_Out32(XPAR_LED_BASEADDR,0x0); cycsleep(pause * 4);	// Disable LEDs
+			}
+			break;
+	}
+}
+
+
 

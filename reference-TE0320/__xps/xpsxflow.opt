@@ -1,1 +1,1 @@
- -device xc3sd3400afg676-4 data\system.ucf 0
+ -device xc3sd1800afg676-4 data\system.ucf 0

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">bram</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">23</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">bram</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">29</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">gpio</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">41</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">gpio</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">47</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">spi</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">53</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">mpmc</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">59</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">uartlite</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">71</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">uartlite</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">88</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">intc</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">94</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+<msg type="warning" file="EDK" num="411" delta="old" ><arg fmt="%s" index="1">tmrctr</arg> - <arg fmt="%s" index="2">C:\Projects\Trenz\TE0320-00_v8.0\reference-TE0320-34-EDK-12-4\system.mss</arg> line <arg fmt="%i" index="3">100</arg> - deprecated <arg fmt="%s" index="4">driver</arg>!
+</msg>
+
+</messages>
+

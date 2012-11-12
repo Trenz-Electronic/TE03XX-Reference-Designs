@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="19" version="2.0">
+<workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="237" y="0">
+<window height="768" maximized="true" width="1024" x="212" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -24,7 +24,7 @@
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page aggregateWorkingSetId="Aggregate for window 1346863173138" focus="true" label="Workspace - C/C++">
+<page aggregateWorkingSetId="Aggregate for window 1352707804056" focus="true" label="Workspace - C/C++">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
@@ -32,16 +32,39 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" name="system.xml" partName="system.xml" path="C:/Projects/Trenz/repos/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/reference-TE0320_hw_platform/system.xml" title="system.xml" tooltip="reference-TE0320_hw_platform/system.xml" workbook="DefaultEditorWorkbook">
+<editor id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" name="system.xml" partName="system.xml" path="B:/GIT/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/reference-TE0320_hw_platform/system.xml" title="system.xml" tooltip="reference-TE0320_hw_platform/system.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/reference-TE0320_hw_platform/system.xml"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Projects/Trenz/repos/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/demo/src/main.c" title="main.c" tooltip="demo/src/main.c" workbook="DefaultEditorWorkbook">
+<editor id="com.xilinx.sdk.sw.MSSEditor" name="system.mss" partName="system.mss" path="B:/GIT/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/standalone_bsp_0/system.mss" title="system.mss" tooltip="standalone_bsp_0/system.mss" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/standalone_bsp_0/system.mss"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="func.c" partName="func.c" path="B:/GIT/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/demo/src/func.c" title="func.c" tooltip="demo/src/func.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo/src/func.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="func.h" partName="func.h" path="B:/GIT/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/demo/src/func.h" title="func.h" tooltip="demo/src/func.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo/src/func.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="interrupts.c" partName="interrupts.c" path="B:/GIT/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/demo/src/interrupts.c" title="interrupts.c" tooltip="demo/src/interrupts.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo/src/interrupts.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="B:/GIT/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/demo/src/main.c" title="main.c" tooltip="demo/src/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo/src/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4786" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="com.xilinx.sdk.lscript.editor" name="lscript.ld" partName="lscript.ld" path="B:/GIT/TE03XX-Reference-Designs/reference-TE0320/SDK/SDK_Workspace/demo/src/lscript.ld" title="lscript.ld" tooltip="demo/src/lscript.ld" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo/src/lscript.ld"/>
 </editor>
 </editors>
 <views>
@@ -53,11 +76,7 @@
 <view id="org.eclipse.tm.terminal.view.TerminalView" partName="Terminal"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Errors"/>
-</expanded>
-<columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
+<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -143,7 +162,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@4254782a" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="topLeft">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@76e9493a" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="topLeft">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
@@ -152,7 +171,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.5984849" ratioLeft="395" ratioRight="265" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.7496136" ratioLeft="485" ratioRight="162" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
@@ -187,62 +206,30 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" path="/reference-TE0320_hw_platform/system.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.sw.MSSEditor" path="/standalone_bsp_0/system.mss"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/demo/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/demo/src/func.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/demo/src/func.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/demo/src/interrupts.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/demo/src/control_fifo.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/standalone_bsp_0/microblaze_0/include/xparameters.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/standalone_bsp_0/microblaze_0/include/xps_npi_dma.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/demo/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.lscript.editor" path="/demo/src/lscript.ld"/>
 </editors>
 <item historyLabel="system.xml" index="0"/>
-<item historyLabel="system.mss" index="1">
+<item historyLabel="system.mss" index="1"/>
+<item historyLabel="func.c" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="system.mss" index="1">
+<item historyLabel="func.c" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="2">
+<item historyLabel="func.h" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="interrupts.c" index="3">
+<item historyLabel="interrupts.c" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="2">
+<item historyLabel="main.c" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="control_fifo.c" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="xparameters.h" index="5">
-<position info="not_deleted" x="1465" y="28"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="xparameters.h" index="5">
-<position info="not_deleted" x="1465" y="28"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="1659" y="0"/>
-</item>
-<item historyLabel="xparameters.h" index="5">
-<position info="not_deleted" x="1514" y="28"/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="4786" y="0"/>
-</item>
-<item historyLabel="xps_npi_dma.h" index="6">
-<position/>
-</item>
-<item historyLabel="main.c" index="2">
-<position info="not_deleted" x="4786" y="0"/>
-</item>
-<item historyLabel="xps_npi_dma.h" index="6">
-<position info="not_deleted" x="10209" y="0"/>
-</item>
-<item active="true" historyLabel="main.c" index="2">
-<position info="not_deleted" x="4786" y="0"/>
-</item>
+<item active="true" historyLabel="lscript.ld" index="6"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -260,20 +247,20 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xps_npi_dma.h" tooltip="standalone_bsp_0/microblaze_0/include/xps_npi_dma.h">
-<persistable path="/standalone_bsp_0/microblaze_0/include/xps_npi_dma.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.lscript.editor" name="lscript.ld" tooltip="demo/src/lscript.ld">
+<persistable path="/demo/src/lscript.ld"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xparameters.h" tooltip="standalone_bsp_0/microblaze_0/include/xparameters.h">
-<persistable path="/standalone_bsp_0/microblaze_0/include/xparameters.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_fifo.c" tooltip="demo/src/control_fifo.c">
-<persistable path="/demo/src/control_fifo.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="demo/src/main.c">
+<persistable path="/demo/src/main.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="interrupts.c" tooltip="demo/src/interrupts.c">
 <persistable path="/demo/src/interrupts.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="demo/src/main.c">
-<persistable path="/demo/src/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="func.h" tooltip="demo/src/func.h">
+<persistable path="/demo/src/func.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="func.c" tooltip="demo/src/func.c">
+<persistable path="/demo/src/func.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.sw.MSSEditor" name="system.mss" tooltip="standalone_bsp_0/system.mss">
 <persistable path="/standalone_bsp_0/system.mss"/>

@@ -1,0 +1,22 @@
+microblaze_0
+DEMO_SOURCES = sw/demo/src/func.c sw/demo/src/interrupts.c sw/demo/src/main.c sw/demo/src/control_fifo.c 
+DEMO_HEADERS = sw/demo/src/control_fifo.h sw/demo/src/datatype.h sw/demo/src/func.h sw/demo/src/interrupts.h 
+DEMO_CC = mb-gcc
+DEMO_CC_SIZE = mb-size
+DEMO_CC_OPT = -O0
+DEMO_CFLAGS = 
+DEMO_CC_SEARCH = # -B
+DEMO_LIBPATH = -L./microblaze_0/lib/ # -L
+DEMO_INCLUDES = -I./microblaze_0/include/  -Isw/demo/src/ # -I
+DEMO_LFLAGS = # -l
+DEMO_LINKER_SCRIPT = 
+DEMO_CC_DEBUG_FLAG =  -g 
+DEMO_CC_PROFILE_FLAG = # -pg
+DEMO_CC_GLOBPTR_FLAG= # -mxl-gp-opt
+DEMO_MODE = executable
+DEMO_LIBG_OPT = -$(DEMO_MODE) microblaze_0
+DEMO_CC_INFERRED_FLAGS= -mno-xl-soft-mul -mxl-pattern-compare -mcpu=v8.00.b 
+DEMO_CC_START_ADDR_FLAG=  # -Wl,-defsym -Wl,_TEXT_START_ADDR=
+DEMO_CC_STACK_SIZE_FLAG= -Wl,-defsym -Wl,_STACK_SIZE=0x800
+DEMO_CC_HEAP_SIZE_FLAG= -Wl,-defsym -Wl,_HEAP_SIZE=0x800
+                  $(DEMO_CC_INFERRED_FLAGS)  \

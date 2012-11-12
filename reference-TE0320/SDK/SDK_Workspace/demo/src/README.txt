@@ -1,2 +1,1 @@
-Demo DMA transfer application.
-
+TE USB Demo application

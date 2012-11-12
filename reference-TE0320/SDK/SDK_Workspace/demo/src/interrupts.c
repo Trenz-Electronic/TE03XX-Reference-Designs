@@ -107,6 +107,25 @@ void i2c_slave_int_handler(void *baseaddr_p) {
 			reg0 = 0x706F6E67;//'pong'
 			break;
 		}
+		case FX22MB_REG0_TEST :
+		{
+			reg0 = 0;
+			FIFO_putchar(&control_fifo, 'v'); //to FIFO
+			break;
+		}
+		case FX22MB_REG0_PASSED :
+		{
+			reg0 = 0;
+			FIFO_putchar(&control_fifo, 'p'); //to FIFO
+			break;
+		}
+		case FX22MB_REG0_ERROR :
+		{
+			reg0 = 0;
+			FIFO_putchar(&control_fifo, 'e'); //to FIFO
+			break;
+		}
+
 	} //END SWITCH
 	
 	XIo_Out32(BaseAddress + XPS_I2C_SLAVE_MB2FX2_REG0_OFFSET,reg0); //write status reg0

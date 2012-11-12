@@ -12,8 +12,8 @@
 *
 *******************************************************************/
 
-#define STDIN_BASEADDRESS 0x84400000
-#define STDOUT_BASEADDRESS 0x84400000
+#define STDIN_BASEADDRESS 0x84000000
+#define STDOUT_BASEADDRESS 0x84000000
 
 /******************************************************************/
 
