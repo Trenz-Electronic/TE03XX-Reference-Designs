@@ -2,4 +2,4 @@
 **** Build of configuration Debug for project demo ****
 
 make all 
-make: Nothing to be done for `all'.
+make: Für das Ziel »all« ist nichts zu tun.

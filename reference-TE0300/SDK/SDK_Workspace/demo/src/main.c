@@ -1,12 +1,59 @@
-#include "Interrupts.h"
+/*
+Copyright (C) 2012 Trenz Electronic
 
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+*/
+
+#include "Interrupts.h"
+#include "xgpio.h"
+//=============================================================================
 #define FX2TX_FIFO_SIZE	512 		//words
 #define FX2RX_FIFO_SIZE	512 		//words
 #define MEMORY_OFFSET	0x10000 	//offset for memory test, below is a MB code
 #define TEST_BLOCK		0x100000	// 1 MB
-//====================================================
-//Menu function
-//====================================================
+//=============================================================================
+// GPIO
+XGpio Gpio;
+#define GPIO_LEDS 			0x01
+#define GPIO_RST_EN			0x002
+#define GPIO_S1C			0x0001
+#define GPIO_S1D			0x0002
+#define GPIO_AV				0x003C
+#define GPIO_BR				0x03C0
+#define GPIO_RST			0x0001
+#define GPIO_OUT_CHANNEL	1
+#define GPIO_IN_CHANNEL		2
+
+void set_led_mode(Xuint8 mode, Xuint32 leds);
+
+//-----------------------------------------------------------------------------
+//	Read Board Revision and Assembly Variant
+//-----------------------------------------------------------------------------
+Xuint8 get_board_revision(void){
+//	Xuint32 gpio_data;
+//	gpio_data = XGpio_DiscreteRead(&Gpio, GPIO_IN_CHANNEL);
+//	return (Xuint8)((gpio_data & (GPIO_BR | GPIO_AV)) >> 2);
+	return 0;
+}
+//-----------------------------------------------------------------------------
+//	Menu function
+//-----------------------------------------------------------------------------
 void menu(void) {
 	xil_printf("\r\nType:\r\n");
 	xil_printf("    'a' RAM test\r\n");
@@ -19,8 +66,88 @@ void menu(void) {
 	xil_printf("    'm' for the redraw menu\r\n");
 }
 
+//-----------------------------------------------------------------------------
+//	Blink mode
+//-----------------------------------------------------------------------------
+void set_led_mode(Xuint8 mode, Xuint32 leds){
+	Xuint32 pause = 700000;
+	switch(mode){
+		default:
+		case 1:
+			while (1){
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, leds); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause);
+			}
+			break;
+		case 2:
+			while (1){
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, leds); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, leds); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause * 4);
+			}
+			break;
+		case 3:
+			while (1){
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, leds); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, leds); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, leds); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause);
+				XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0); cycsleep(pause * 4);
+			}
+			break;
+	}
+}
 
-XStatus sl_fifo_test(void){
+
+
+XStatus standalone_test(void){
+	Xuint32	test1w, test2w;
+
+	xil_printf("\r\nRunning Standalone test\r\n");
+	// Switch FX2 to test mode
+	//XIo_Out32(XPAR_XPS_I2C_SLAVE_0_BASEADDR + XPS_I2C_SLAVE_MB2FX2_REG2_OFFSET, 0x11111111);
+	//XIo_Out32(XPAR_XPS_I2C_SLAVE_0_BASEADDR + XPS_I2C_SLAVE_MB2FX2_REG1_OFFSET, 0x11111111);
+	XIo_Out32(XPAR_XPS_I2C_SLAVE_0_BASEADDR + XPS_I2C_SLAVE_MB2FX2_REG0_OFFSET, 0x11111111);
+	// Show user that test started
+	XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, GPIO_LEDS);	// Turn LEDs ON
+	cycsleep(1500000);
+	XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, 0);			// Turn LEDs OFF
+/*
+	XPS_FX2_SetUSB_FIFOadr(XPAR_XPS_FX2_0_BASEADDR, PI_EP6);	// Set EP
+	xil_printf("Sending\r\n");
+	for(mem_cnt = 0; mem_cnt < 10; mem_cnt++){
+		//while (XPS_FX2_GetTXFIFOcount(XPAR_XPS_FX2_0_BASEADDR) > 512);	// Wait for room in FIFO
+		XPS_FX2_WriteTXFifo(XPAR_XPS_FX2_0_BASEADDR, mem_cnt);
+	}
+*/
+	//xil_printf("RX FIFO Count %d \n\r",XPS_FX2_GetRXFIFOcount(XPAR_XPS_FX2_0_BASEADDR));
+	//xil_printf("TX FIFO Count %d \n\r",XPS_FX2_GetTXFIFOcount(XPAR_XPS_FX2_0_BASEADDR));
+
+	test1w = XPS_FX2_ReadRXFifo(XPAR_XPS_FX2_0_BASEADDR);
+	test2w = XPS_FX2_ReadRXFifo(XPAR_XPS_FX2_0_BASEADDR);
+
+
+
+	if (RAM_test(XPAR_DDR_SDRAM_MPMC_BASEADDR + MEMORY_OFFSET + 32, 60*1024*256,1) == XST_SUCCESS){
+		if((test1w == 0x12345678) && (test2w == 0x90ABCDEF)){
+			xil_printf("Test Passed\r\n");
+			set_led_mode(1, GPIO_LEDS | GPIO_RST_EN);	// (*-*-*-*-) No Errors
+		}
+		else{
+			xil_printf("FX2 SlaveFIFO interface test FAILED!\r\n");
+			set_led_mode(3, GPIO_LEDS | GPIO_RST_EN);	// (*-*-----)	Memory error
+		}
+	}
+	else{
+		xil_printf("DDR Memory test FAILED!\r\n");
+		set_led_mode(2, GPIO_LEDS | GPIO_RST_EN);	// (*-*-----)	Memory error
+	}
+
+
 	//NPI_DMA_TYPE TST_DMA;
 	//Xuint32 rx_end_addr, rx_start_addr, tx_start_addr, mem_cnt, i;
 	//Xuint32 pause = 10000000;
@@ -38,7 +165,6 @@ XStatus sl_fifo_test(void){
 	//TST_DMA.WrLoop = 0;						// continous writing flag
 	//TST_DMA.RdLoop = 0;						// continous reading flag
 
-	xil_printf("\r\nRunning Slave FIFO Interface test\r\n");
 	//XPS_FX2_SetUSB_FIFOadr(XPAR_XPS_FX2_0_BASEADDR, PI_EP6);
 	//xil_printf("Sending\r\n");
 	//for(mem_cnt = 0; mem_cnt < TEST_BLOCK; mem_cnt++){
@@ -46,8 +172,8 @@ XStatus sl_fifo_test(void){
 		//while (XPS_FX2_GetTXFIFOcount(XPAR_XPS_FX2_0_BASEADDR) > 512);	// Wait for room in FIFO
 	//	XPS_FX2_WriteTXFifo(XPAR_XPS_FX2_0_BASEADDR, mem_cnt);
 	//}
-	xil_printf("RX FIFO Count %d \n\r",XPS_FX2_GetRXFIFOcount(XPAR_XPS_FX2_0_BASEADDR));
-	xil_printf("TX FIFO Count %d \n\r",XPS_FX2_GetTXFIFOcount(XPAR_XPS_FX2_0_BASEADDR));
+	//xil_printf("RX FIFO Count %d \n\r",XPS_FX2_GetRXFIFOcount(XPAR_XPS_FX2_0_BASEADDR));
+	//xil_printf("TX FIFO Count %d \n\r",XPS_FX2_GetTXFIFOcount(XPAR_XPS_FX2_0_BASEADDR));
 	//	XIo_Out32((rx_start_addr + mem_cnt),mem_cnt);
 
 	//xil_printf("Configuring DMA\r\n");
@@ -88,19 +214,32 @@ int main (void)
 	Xuint32 ver;
 	Xuint32 counter=0;
 	Xuint16 tx_count;
+	int Status;
 	NPI_DMA_TYPE DMA;
+	Xuint32 gpio_data;
 
 	Xuint8 rx_run = 0; //rx xfer start flag
 	Xuint8 tx_run = 0; //tx xfer start flag
 	Xuint32 tx_addr=XPAR_DDR_SDRAM_MPMC_BASEADDR+MEMORY_OFFSET;
 	Xuint32 rx_addr=XPAR_DDR_SDRAM_MPMC_BASEADDR+MEMORY_OFFSET;
+
+	Status = XGpio_Initialize(&Gpio, XPAR_LED_DEVICE_ID);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	XGpio_SetDataDirection(&Gpio, GPIO_OUT_CHANNEL, ~(GPIO_LEDS | GPIO_RST_EN));
 	
 	ver = VERSION;
-	xil_printf("\r\n--Entering main TE-USB DEMO ver 0x%08X--\r\n", ver);
-	XIo_Out32(XPAR_LED_BASEADDR,0xF);		// Enable LEDs
+	xil_printf("\r\n-- TE-USB DEMO ver 0x%08X--\r\n", ver);
 	
+	gpio_data = XGpio_DiscreteRead(&Gpio, GPIO_IN_CHANNEL);
+	if(gpio_data & GPIO_RST)	// Button is pressed
+		standalone_test();		// Run selftest
+	else	// Button not pressed = Normal mode (Enable LEDs and reset button)
+		XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHANNEL, GPIO_LEDS | GPIO_RST_EN);
+
+
 	start_intc();
-  
     //NPI DMA properties
   	DMA.BaseAddress=XPAR_XPS_NPI_DMA_0_BASEADDR;	//base address of the DMA device
 	DMA.WrStartAddr=tx_addr;	//start address for writing
@@ -120,8 +259,6 @@ int main (void)
 	FIFO_ResetChar(&control_fifo);
 	
 	caching(cache); //cache setup - usually better off
-	
-//	FIFO_putchar(&control_fifo, 'a');
 	
 	menu();
 	
@@ -209,28 +346,27 @@ int main (void)
 				case 'm' :
 					menu();	
 					break;
-				case 'v':	// Internal test
+				case 'v':	// Internal Memory test
 					// +32 to be differ from USB transfer test
 					if (RAM_test(XPAR_DDR_SDRAM_MPMC_BASEADDR + MEMORY_OFFSET + 32, 60*1024*256,1) == XST_SUCCESS){
 						XIo_Out32(XPAR_XPS_I2C_SLAVE_0_BASEADDR + XPS_I2C_SLAVE_MB2FX2_REG0_OFFSET,1);
-						//if(sl_fifo_test() == XST_SUCCESS){
-						//	set_led_mode(1);	// (*-*-*-*-) No Errors
-						//}
-						//else
-						//	set_led_mode(3);	// (*-*-*---) Sl FIFO error
 					}
 					else{
 						XIo_Out32(XPAR_XPS_I2C_SLAVE_0_BASEADDR + XPS_I2C_SLAVE_MB2FX2_REG0_OFFSET,2);
-						set_led_mode(2);	// (*-*-----)	Memory error
+						set_led_mode(2, GPIO_LEDS | GPIO_RST_EN);	// (*-*-----)	Memory error
 					}
 					break;
 
 				case 'p':	// Set passed LED
-					set_led_mode(1);	// (*-*-*-*-) No Errors
+					set_led_mode(1, GPIO_LEDS | GPIO_RST_EN);	// (*-*-*-*-) No Errors
 					break;
 
 				case 'e':	// Set passed LED
-					set_led_mode(3);	// (*-*-*---) Sl FIFO error
+					set_led_mode(3, GPIO_LEDS | GPIO_RST_EN);	// (*-*-*---) Sl FIFO error
+					break;
+
+				case 'u':	// Run selftest
+					standalone_test();
 					break;
 
 				default:

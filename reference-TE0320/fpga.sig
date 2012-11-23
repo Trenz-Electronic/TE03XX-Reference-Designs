@@ -1,7 +1,7 @@
-// PROMGEN: Xilinx Prom Generator O.61xd
+// PROMGEN: Xilinx Prom Generator O.76xd
 // Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
-DATE      11/12/12-11:15
+DATE      11/23/12-10:57
 SOURCE    .\fpga.bin
 DEVICE    XCF16P
-SIGNATURE 0x012647AD
+SIGNATURE 0x0115917C

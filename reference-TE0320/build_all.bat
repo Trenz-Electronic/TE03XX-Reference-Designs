@@ -1,5 +1,5 @@
 rem Configure environment
-call C:\Xilinx\13.2\ISE_DS\settings64.bat
+call C:\Xilinx\13.3\ISE_DS\settings64.bat
 
 @rem Prepare 1800 project
 @copy /y system.xmp.1800 system.xmp
@@ -10,8 +10,8 @@ make -f system.make hwclean
 @rem Generate bitstream
 make -f system.make init_bram
 @rem Copy result
-copy /y implementation\system.bit system_1800.bit
-copy /y implementation\system_bd.bmm system_bd_1800.bmm
+@rem copy /y implementation\system.bit system_1800.bit
+@rem copy /y implementation\system_bd.bmm system_bd_1800.bmm
 copy /y implementation\download.bit TE0320_1800.bit
 @rem Clean project
 make -f system.make hwclean
@@ -25,8 +25,8 @@ make -f system.make hwclean
 @rem Generate bitstream
 make -f system.make init_bram
 @rem Copy result
-copy /y implementation\system.bit system_3400.bit
-copy /y implementation\system_bd.bmm system_bd_3400.bmm
+@rem copy /y implementation\system.bit system_3400.bit
+@rem copy /y implementation\system_bd.bmm system_bd_3400.bmm
 copy /y implementation\download.bit TE0320_3400.bit
 @rem Clean project
 make -f system.make hwclean
@@ -36,11 +36,11 @@ make -f system.make hwclean
 
 @rem Making FWUs
 @rem Configure environment
-@set XILINX=C:\Xilinx\13.2\ISE_DS\ISE
+@set XILINX=C:\Xilinx\13.3\ISE_DS\ISE
 @set XILINX_DSP=%XILINX%
 @set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
 @rem Copy needed files
-@copy ..\..\TE_USB_FX2.firmware\ready_for_download\current_te.iic PREPARE_FWU\usb.bin
+@copy ..\..\TE-USB-Suite\TE_USB_FX2.firmware\ready_for_download\current_te.iic PREPARE_FWU\usb.bin
 @copy PREPARE_FWU\usb.bin .\
 @copy PREPARE_FWU\Bootload.ini .\
 
@@ -48,6 +48,8 @@ make -f system.make hwclean
 @copy TE0320_1800.bit fpga.bit
 @impact -batch etc\bit2bin.cmd
 @copy fpga.bin TE0320-1800.bin
+@impact -batch etc\bit2mcs.cmd
+@copy fpga.mcs TE0320-1800.mcs
 @PREPARE_FWU\zip -q TE0320-1800.zip fpga.bin Bootload.ini usb.bin
 @move TE0320-1800.zip TE0320-1800.fwu
 @rem Remove logs
@@ -57,6 +59,8 @@ make -f system.make hwclean
 @copy TE0320_3400.bit fpga.bit
 @impact -batch etc\bit2bin.cmd
 @copy fpga.bin TE0320-3400.bin
+@impact -batch etc\bit2mcs.cmd
+@copy fpga.mcs TE0320-3400.mcs
 @PREPARE_FWU\zip -q TE0320-3400.zip fpga.bin Bootload.ini usb.bin
 @move TE0320-3400.zip TE0320-3400.fwu
 @rem Remove logs

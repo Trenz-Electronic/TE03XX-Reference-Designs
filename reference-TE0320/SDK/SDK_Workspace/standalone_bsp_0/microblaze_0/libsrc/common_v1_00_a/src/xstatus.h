@@ -1,4 +1,4 @@
-/* $Id: xstatus.h,v 1.28.6.2 2011/05/03 03:48:10 sadanan Exp $ */
+/* $Id: xstatus.h,v 1.28.6.2.54.1 2011/09/12 03:51:54 svemula Exp $ */
 /******************************************************************************
 *
 *       XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS"
@@ -15,7 +15,7 @@
 *       INFRINGEMENT, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 *       FOR A PARTICULAR PURPOSE.
 *
-*       (c) Copyright 2002-2010 Xilinx Inc.
+*       (c) Copyright 2002-2011 Xilinx Inc.
 *       All rights reserved.
 *
 ******************************************************************************/
@@ -364,6 +364,11 @@ extern "C" {
 /****************** HWICAP constants 1421 - 1430  *****************************/
 
 #define XST_HWICAP_WRITE_DONE		1421
+
+
+/****************** AXI VDMA constants 1430 - 1440  *****************************/
+
+#define XST_VDMA_MISMATCH_ERROR 1430
 
 /**************************** Type Definitions *******************************/
 

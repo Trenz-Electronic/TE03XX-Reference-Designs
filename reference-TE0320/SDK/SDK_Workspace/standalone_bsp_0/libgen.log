@@ -1,4 +1,4 @@
-Release 13.2 - libgen Xilinx EDK 13.2 Build EDK_O.61xd
+Release 13.3 - libgen Xilinx EDK 13.3 Build EDK_O.76xd
  (nt64)
 Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
@@ -6,6 +6,18 @@ Command Line: libgen -hw ../reference-TE0320_hw_platform/system.xml -lp
 B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP -pe microblaze_0 -log libgen.log
 system.mss 
 
+WARNING:EDK:411 - spi -
+   B:\GIT\TE03XX-Reference-Designs\reference-TE0320\SDK\SDK_Workspace\standalone
+   _bsp_0\system.mss line 39 - deprecated driver!
+WARNING:EDK:411 - intc -
+   B:\GIT\TE03XX-Reference-Designs\reference-TE0320\SDK\SDK_Workspace\standalone
+   _bsp_0\system.mss line 81 - deprecated driver!
+WARNING:EDK:411 - tmrctr -
+   B:\GIT\TE03XX-Reference-Designs\reference-TE0320\SDK\SDK_Workspace\standalone
+   _bsp_0\system.mss line 93 - deprecated driver!
+WARNING:EDK:411 - standalone -
+   B:\GIT\TE03XX-Reference-Designs\reference-TE0320\SDK\SDK_Workspace\standalone
+   _bsp_0\system.mss line 5 - deprecated os!
 
 Staging source files.
 Running DRCs.

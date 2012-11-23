@@ -27,15 +27,16 @@
 
 /* Constant Declaration*/
 //device
-#define FX22MB_REG0_NOP 		0
-#define FX22MB_REG0_GETVERSION	1
-#define FX22MB_REG0_START_TX 	2
-#define FX22MB_REG0_START_RX 	3
-#define FX22MB_REG0_STOP 		4
-#define FX22MB_REG0_PING 		5
-#define FX22MB_REG0_TEST		6
-#define FX22MB_REG0_PASSED		7
-#define FX22MB_REG0_ERROR		8
+#define FX22MB_REG0_NOP 			0
+#define FX22MB_REG0_GETVERSION		1
+#define FX22MB_REG0_START_TX 		2
+#define FX22MB_REG0_START_RX 		3
+#define FX22MB_REG0_STOP 			4
+#define FX22MB_REG0_PING 			5
+#define FX22MB_REG0_TEST			6
+#define FX22MB_REG0_PASSED			7
+#define FX22MB_REG0_ERROR			8
+#define FX22MB_REG0_GET_REVISION	9
 
 FIFO_TYPE control_fifo;
 

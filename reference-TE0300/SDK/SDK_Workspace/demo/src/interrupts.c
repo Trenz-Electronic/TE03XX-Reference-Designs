@@ -1,5 +1,28 @@
+/*
+Copyright (C) 2012 Trenz Electronic
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+*/
+
 #include "Interrupts.h"
 
+Xuint8 get_board_revision(void);	// We use this from main.c
 //====================================================
 //Interrupt controller inicialization function
 //====================================================
@@ -125,7 +148,9 @@ void i2c_slave_int_handler(void *baseaddr_p) {
 			FIFO_putchar(&control_fifo, 'e'); //to FIFO
 			break;
 		}
-
+		case FX22MB_REG0_GET_REVISION :
+			reg0 = get_board_revision();
+			break;
 	} //END SWITCH
 	
 	XIo_Out32(BaseAddress + XPS_I2C_SLAVE_MB2FX2_REG0_OFFSET,reg0); //write status reg0

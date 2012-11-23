@@ -9,7 +9,7 @@
 
 SHELL = CMD
 
-XILINX_EDK_DIR = C:/Xilinx/13.2/ISE_DS/EDK
+XILINX_EDK_DIR = C:/Xilinx/13.3/ISE_DS/EDK
 
 SYSTEM = system
 
@@ -19,6 +19,8 @@ FPGA_ARCH = spartan3adsp
 
 DEVICE = xc3sd3400afg676-4
 
+INTSTYLE = default
+
 LANGUAGE = vhdl
 GLOBAL_SEARCHPATHOPT = 
 PROJECT_SEARCHPATHOPT =  -lp B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/
@@ -27,7 +29,7 @@ SEARCHPATHOPT = $(PROJECT_SEARCHPATHOPT) $(GLOBAL_SEARCHPATHOPT)
 
 SUBMODULE_OPT = 
 
-PLATGEN_OPTIONS = -p $(DEVICE) -lang $(LANGUAGE) $(SEARCHPATHOPT) $(SUBMODULE_OPT) -msg __xps/ise/xmsgprops.lst
+PLATGEN_OPTIONS = -p $(DEVICE) -lang $(LANGUAGE) -intstyle $(INTSTYLE) $(SEARCHPATHOPT) $(SUBMODULE_OPT) -msg __xps/ise/xmsgprops.lst
 
 OBSERVE_PAR_OPTIONS = -error no
 
@@ -56,25 +58,10 @@ TIMING_SIM_SCRIPT = simulation/timing/$(SYSTEM)_setup.tcl
 
 DEFAULT_SIM_SCRIPT = $(BEHAVIORAL_SIM_SCRIPT)
 
-SIMGEN_OPTIONS = -p $(DEVICE) -lang $(LANGUAGE) $(SEARCHPATHOPT) $(BRAMINIT_ELF_SIM_FILE_ARGS) -msg __xps/ise/xmsgprops.lst -s isim
+SIMGEN_OPTIONS = -p $(DEVICE) -lang $(LANGUAGE) -intstyle $(INTSTYLE) $(SEARCHPATHOPT) $(BRAMINIT_ELF_SIM_FILE_ARGS) -msg __xps/ise/xmsgprops.lst -s isim
 
 
-CORE_STATE_DEVELOPMENT_FILES = C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/ipif_pkg.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_muxcy.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_gate128.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/family_support.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/pselect_f.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/counter_f.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/soft_reset.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plb_address_decoder.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plb_slave_attachment.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plbv46_slave_single.vhd \
-C:/Xilinx/13.2/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/interrupt_control_v2_01_a/hdl/vhdl/interrupt_control.vhd \
-B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/fx2_core.vhd \
-B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/fx2_engine.vhd \
-B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/user_logic.vhd \
-B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/MyProcessorIPLib/pcores/xps_fx2_v1_50_a/hdl/vhdl/xps_fx2.vhd
+CORE_STATE_DEVELOPMENT_FILES = 
 
 WRAPPER_NGC_FILES = implementation/microblaze_0_wrapper.ngc \
 implementation/mb_plb_wrapper.ngc \
@@ -96,9 +83,7 @@ implementation/xps_timer_0_wrapper.ngc \
 implementation/rs232_wrapper.ngc \
 implementation/xps_i2c_slave_0_wrapper.ngc \
 implementation/xps_fx2_0_wrapper.ngc \
-implementation/xps_npi_dma_0_wrapper.ngc \
-implementation/chipscope_ila_0_wrapper.ngc \
-implementation/chipscope_icon_0_wrapper.ngc
+implementation/xps_npi_dma_0_wrapper.ngc
 
 POSTSYN_NETLIST = implementation/$(SYSTEM).ngc
 

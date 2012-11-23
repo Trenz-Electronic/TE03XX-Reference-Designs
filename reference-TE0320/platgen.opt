@@ -2,6 +2,8 @@
 xc3sd3400afg676-4
 -lang
 vhdl
+-intstyle
+default
 -lp
 B:/GIT/TE03XX-Reference-Designs/TE-EDK-IP/
 -msg

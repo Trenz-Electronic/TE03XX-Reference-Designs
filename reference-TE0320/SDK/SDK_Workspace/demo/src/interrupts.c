@@ -125,6 +125,9 @@ void i2c_slave_int_handler(void *baseaddr_p) {
 			FIFO_putchar(&control_fifo, 'e'); //to FIFO
 			break;
 		}
+		case FX22MB_REG0_GET_REVISION :
+			reg0 = get_board_revision();
+			break;
 
 	} //END SWITCH
 	

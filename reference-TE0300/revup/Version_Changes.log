@@ -1,0 +1,13 @@
+ The following files will be modified:
+  system.mhs
+--------------------------------------
+ The following changes will be made:
+ Core xps_spi 2.02.a will be replaced by 2.02.b
+ Core mpmc 6.04.a will be replaced by 6.05.a
+ Core clock_generator 4.02.a will be replaced by 4.03.a
+ Core chipscope_ila 1.04.a will be replaced by 1.05.a
+ Core chipscope_icon 1.05.a will be replaced by 1.06.a
+--------------------------------------
+ You must manually make the following changes:
+ Core lmb_v10 1.00.a needs to be replaced by 2.00.b
+ Core lmb_bram_if_cntlr 2.10.b needs to be replaced by 3.00.b

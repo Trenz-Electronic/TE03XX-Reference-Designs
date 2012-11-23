@@ -10,8 +10,8 @@ make -f system.make hwclean
 @rem Generate bitstream
 make -f system.make init_bram
 @rem Copy result
-copy /y implementation\system.bit system_1200.bit
-copy /y implementation\system_bd.bmm system_bd_1200.bmm
+@rem copy /y implementation\system.bit system_1200.bit
+@rem copy /y implementation\system_bd.bmm system_bd_1200.bmm
 copy /y implementation\download.bit TE0300_1200.bit
 @rem Clean project
 make -f system.make hwclean
@@ -25,8 +25,8 @@ make -f system.make hwclean
 @rem Generate bitstream
 make -f system.make init_bram
 @rem Copy result
-copy /y implementation\system.bit system_1600.bit
-copy /y implementation\system_bd.bmm system_bd_1600.bmm
+@rem copy /y implementation\system.bit system_1600.bit
+@rem copy /y implementation\system_bd.bmm system_bd_1600.bmm
 copy /y implementation\download.bit TE0300_1600.bit
 @rem Clean project
 make -f system.make hwclean

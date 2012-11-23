@@ -97,11 +97,15 @@
 				    <xsl:choose>
 						<xsl:when test="@LEFT and @RIGHT">
 							<xsl:variable name="vecformula_txt_">[<xsl:value-of select="@LEFT"/>:<xsl:value-of select="@RIGHT"/>]</xsl:variable>
-							<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}"/>
+							<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}">
+                                <TOOLTIP><qt><xsl:value-of select="$vecformula_txt_"/></qt></TOOLTIP>
+                            </VARIABLE>
 						</xsl:when>
 						<xsl:when test="@MSB and @LSB">
 							<xsl:variable name="vecformula_txt_">[<xsl:value-of select="@MSB"/>:<xsl:value-of select="@LSB"/>]</xsl:variable>
-							<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}"/>
+							<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}">
+                                <TOOLTIP><qt><xsl:value-of select="$vecformula_txt_"/></qt></TOOLTIP>
+                            </VARIABLE>
 						</xsl:when>
 				    	<xsl:when test="(not(@MSB) and not(@LSB) and not(@SIGIS = 'CLK') and not(@SIGIS = 'CLOCK') and not(@SIGIS = 'DCMCLK') and not(@SIGIS = 'RST') and not(@SIGIS = 'RESET'))">
 				    		<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE=""/>
@@ -119,6 +123,33 @@
 		            <xsl:if test="(@SIGIS = 'INTERRUPT')">
 	            		<VARIABLE VIEWTYPE="DROPDOWN"    VIEWDISP="Sensitivity" NAME="SENSITIVITY" VALUE="{@SENSITIVITY}"/>
 	        		</xsl:if>
+
+                    <!-- Add connectivity information-->
+                    <VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" />
+                	<xsl:variable name="noOFConnections" select="count(CONNECTIONS/CONNECTION)" />
+                	<xsl:if test="$noOFConnections != 0" >
+            		<!--VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" /-->
+            		<CONNECTIONS>
+                    <xsl:for-each select="CONNECTIONS/CONNECTION" >
+            			<xsl:variable name="iInstance" select="@INSTANCE"/>
+            			<xsl:variable name="iPort" select="@PORT"/>
+						<xsl:choose>
+							<xsl:when test="@BUSINTERFACE">
+								<xsl:variable name="iBusName" select="@BUSINTERFACE"/>
+								<CONNECTION INSTANCE="{$iInstance}" PORT="{$iPort}" BUSINTERFACE="{$iBusName}"/>
+							</xsl:when>
+                            <xsl:when test="@PORT">
+								<CONNECTION INSTANCE="{$iInstance}" PORT="{$iPort}"/>
+                            </xsl:when>
+							<xsl:otherwise>
+								<CONNECTION INSTANCE="{$iInstance}"/>
+							</xsl:otherwise>
+						</xsl:choose>
+            		</xsl:for-each>
+            		</CONNECTIONS>
+	</xsl:if>
+
+
 	        	</xsl:element>
 			</xsl:for-each> <!--  End of EXTERNAL PORTS loop -->
 		</xsl:for-each> <!-- End of EXTERNAL PORTS loop  -->
@@ -161,7 +192,7 @@
 		</xsl:if>
 -->		
 	
-		<SET ID="{$m_inst_}" CLASS="MODULE">
+		<SET ID="{$m_inst_}" CLASS="MODULE" MODCLASS="{$m_class_}">
 			<!-- CR452579
 		     			Can only modify INSTANCE name in Hierarchal view.
 			--> 
@@ -206,6 +237,13 @@
 								<xsl:when test="@VECFORMULA"><xsl:value-of select="@VECFORMULA"/></xsl:when>
 				    			<xsl:otherwise>__NONE__</xsl:otherwise>
 							</xsl:choose>
+                        </xsl:variable>
+						
+                        <xsl:variable name="portRange_">
+				    		<xsl:choose>
+								<xsl:when test="@MSB and @LSB">[<xsl:value-of select="@MSB"/>:<xsl:value-of select="@LSB"/>]</xsl:when>
+				    			<xsl:otherwise>__NONE__</xsl:otherwise>
+							</xsl:choose>
 						</xsl:variable>    
 				
 						<xsl:call-template name="WRITE_PORT_SET">
@@ -215,6 +253,7 @@
 							<xsl:with-param name="iSigIs"       select="$portSigIs_"/>
 							<xsl:with-param name="iSensitivity" select="$portSensi_"/>
 							<xsl:with-param name="iVecFormula"  select="$portVecFormula_"/>
+							<xsl:with-param name="iPortRange"  select="$portRange_"/>
 						</xsl:call-template>
 			    	</xsl:if>
 				</xsl:for-each>
@@ -256,6 +295,12 @@
 		    			<xsl:otherwise>__NONE__</xsl:otherwise>
 					</xsl:choose>
 				</xsl:variable>    
+                <xsl:variable name="portRange_">
+		    		<xsl:choose>
+						<xsl:when test="@MSB and @LSB">[<xsl:value-of select="@MSB"/>:<xsl:value-of select="@LSB"/>]</xsl:when>
+		    			<xsl:otherwise>__NONE__</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>    
 		
 		     
 				<xsl:call-template name="WRITE_PORT_SET">
@@ -265,6 +310,7 @@
 					<xsl:with-param name="iSigIs"       select="$portSigIs_"/>
 					<xsl:with-param name="iSensitivity" select="$portSensi_"/>
 					<xsl:with-param name="iVecFormula"  select="$portVecFormula_"/>
+					<xsl:with-param name="iPortRange"  select="$portRange_"/>
 				</xsl:call-template>
 		   	</xsl:for-each>	<!--  END of PORTS NOT OF INTERFACE -->
 		   	
@@ -345,6 +391,13 @@
 								    	<xsl:otherwise>__NONE__</xsl:otherwise>
 									</xsl:choose>
 								</xsl:variable>
+                                
+                                <xsl:variable name="portRange_">
+								    <xsl:choose>
+										<xsl:when test="$portRef_/@MSB and $portRef_/@LSB">[<xsl:value-of select="$portRef_/@MSB"/>:<xsl:value-of select="$portRef_/@LSB"/>]</xsl:when>
+								    	<xsl:otherwise>__NONE__</xsl:otherwise>
+									</xsl:choose>
+								</xsl:variable>
 							    
 				   			   	<xsl:call-template name="WRITE_PORT_SET">
 									<xsl:with-param name="iName"        select="$portName_"/>
@@ -353,6 +406,8 @@
 									<xsl:with-param name="iSigIs"       select="$portSigIs_"/>
 									<xsl:with-param name="iSensitivity" select="$portSensi_"/>
 									<xsl:with-param name="iVecFormula"  select="$portVecFormula_"/>
+									<xsl:with-param name="iBifPortRef" select="$portRef_"/>
+									<xsl:with-param name="iPortRange"  select="$portRange_"/>
 							  	</xsl:call-template>
 					    	</xsl:if>
 						</xsl:for-each> <!--  END BIF PORTMAPS LOOP -->	               		
@@ -440,6 +495,13 @@
 								    	<xsl:otherwise>__NONE__</xsl:otherwise>
 									</xsl:choose>
 								</xsl:variable>
+                                
+                                <xsl:variable name="portRange_">
+								    <xsl:choose>
+										<xsl:when test="$portRef_/@MSB and $portRef_/@LSB">[<xsl:value-of select="$portRef_/@MSB"/>:<xsl:value-of select="$portRef_/@LSB"/>]</xsl:when>
+								    	<xsl:otherwise>__NONE__</xsl:otherwise>
+									</xsl:choose>
+								</xsl:variable>
 							    
 				   			   	<xsl:call-template name="WRITE_PORT_SET">
 									<xsl:with-param name="iName"        select="$portName_"/>
@@ -448,6 +510,8 @@
 									<xsl:with-param name="iSigIs"       select="$portSigIs_"/>
 									<xsl:with-param name="iSensitivity" select="$portSensi_"/>
 									<xsl:with-param name="iVecFormula"  select="$portVecFormula_"/>
+									<xsl:with-param name="iBifPortRef"  select="$portRef_"/>
+									<xsl:with-param name="iPortRange"  select="$portRange_"/>
 							  	</xsl:call-template>
 					        </xsl:if> <!-- End of port is valid check -->
 						</xsl:for-each> <!--  END IO INTERFACE PORTMAPS LOOP -->	 
@@ -501,11 +565,15 @@
 				 <xsl:choose>
 					<xsl:when test="@LEFT and @RIGHT">
 						<xsl:variable name="vecformula_txt_">[<xsl:value-of select="@LEFT"/>:<xsl:value-of select="@RIGHT"/>]</xsl:variable>
-						<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}"/>
+						<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}">
+                            <TOOLTIP><qt><xsl:value-of select="$vecformula_txt_"/></qt></TOOLTIP>
+                        </VARIABLE>
 					</xsl:when>
 					<xsl:when test="@MSB and @LSB">
 						<xsl:variable name="vecformula_txt_">[<xsl:value-of select="@MSB"/>:<xsl:value-of select="@LSB"/>]</xsl:variable>
-						<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}"/>
+						<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$vecformula_txt_}">
+                            <TOOLTIP><qt><xsl:value-of select="$vecformula_txt_"/></qt></TOOLTIP>
+                        </VARIABLE>
 					</xsl:when>
 			    	<xsl:when test="(not(@MSB) and not(@LSB) and not(@SIGIS = 'CLK') and not(@SIGIS = 'CLOCK') and not(@SIGIS = 'DCMCLK') and not(@SIGIS = 'RST') and not(@SIGIS = 'RESET'))">
 			    		<VARIABLE VIEWTYPE="TEXTBOX"    VIEWDISP="Range" NAME="VECFORMULA" VALUE=""/>
@@ -621,10 +689,15 @@
 				    <xsl:if test="@SIGIS">
 				        <VARIABLE VIEWTYPE="STATIC"  VIEWDISP="Class" NAME="SIGIS" VALUE="{@SIGIS}"/>
 				    </xsl:if>
-				    
-				    <xsl:if test="@VECFORMULA">
-				        <VARIABLE VIEWTYPE="STATIC"  VIEWDISP="Range" NAME="VECFORMULA" VALUE="{@VECFORMULA}"/>
-				    </xsl:if>
+                    
+                    <xsl:choose>
+					<xsl:when test="@MSB and @LSB">
+						<xsl:variable name="portRange_txt_">[<xsl:value-of select="@MSB"/>:<xsl:value-of select="@LSB"/>]</xsl:variable>
+						<VARIABLE VIEWTYPE="STATIC"    VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$portRange_txt_}">
+                            <TOOLTIP><qt><xsl:value-of select="@VECFORMULA"/></qt> </TOOLTIP>
+                        </VARIABLE>
+					</xsl:when>
+			        </xsl:choose>
 				    
 				    <xsl:if test="@SENSITIVITY">
 				        <VARIABLE VIEWTYPE="STATIC"  VIEWDISP="Sensitivity" NAME="SENSITIVITY" VALUE="{@SENSITIVITY}"/>
@@ -694,6 +767,8 @@
 <xsl:param name="iSigIs"        select="'__NONE__'"/>
 <xsl:param name="iVecFormula"   select="'__NONE__'"/>
 <xsl:param name="iSensitivity"  select="'__NONE__'"/>
+<xsl:param name="iBifPortRef"   select="'__NONE__'"/>
+<xsl:param name="iPortRange"  select="'__NONE__'"/>
 
 <SET ID="{$iName}" CLASS="PORT">
  
@@ -755,13 +830,97 @@
         <VARIABLE VIEWTYPE="STATIC" VIEWDISP="Class" NAME="SIGIS" VALUE="{$iSigIs}"/>
     </xsl:if>
         
-    <xsl:if test="not($iVecFormula = '__NONE__')">
-        <VARIABLE VIEWTYPE="STATIC" VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$iVecFormula}"/>
+    <xsl:if test="not($iPortRange = '__NONE__')">
+      <VARIABLE VIEWTYPE="STATIC" VIEWDISP="Range" NAME="VECFORMULA" VALUE="{$iPortRange}" >
+        <TOOLTIP><qt><xsl:value-of select="$iVecFormula"/></qt></TOOLTIP>
+      </VARIABLE>
     </xsl:if>
     
     <xsl:if test="not($iSensitivity = '__NONE__')">
         <VARIABLE VIEWTYPE="STATIC" VIEWDISP="Sensitivity" NAME="SENSITIVITY" VALUE="{$iSensitivity}"/>
     </xsl:if>
+
+
+	<xsl:choose>
+
+		<xsl:when test="(($iSigName = '__NOC__') and ($is_input = 'TRUE') and ($is_interrupt = 'TRUE') and ($iVecFormula = '__NONE__'))">
+			<VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" VALUE="No Connection" IS_INTERRUPT="{$is_interrupt}"/>
+		</xsl:when>
+		<xsl:when test="(($iSigName = '__NOC__') and ($is_input ='TRUE') and ($is_interrupt = 'TRUE') and not($iVecFormula = '__NONE__'))">
+			<VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" VALUE="No Connection" IS_INTERRUPT="{$is_interrupt}" IS_RANGE="TRUE"/>
+		</xsl:when>
+
+		<xsl:when test="(($iSigName = '__DEF__') and ($is_input = 'TRUE') and ($is_interrupt = 'TRUE') and ($iVecFormula = '__NONE__'))">
+			<VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" VALUE="Default Connection" IS_INTERRUPT="{$is_interrupt}"/>
+		</xsl:when>
+		
+		<xsl:when test="(($iSigName = '__DEF__') and ($is_input = 'TRUE') and ($is_interrupt = 'TRUE') and not($iVecFormula = '__NONE__'))">
+			<VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" VALUE="Default Connection" IS_INTERRUPT="{$is_interrupt}" IS_RANGE="TRUE"/>
+		</xsl:when>
+
+		<xsl:when test="(not($iSigName = '__DEF__') and not($iSigName = '__NOC__') and ($is_input ='TRUE') and ($is_interrupt = 'TRUE') and not($iVecFormula = '__NONE__'))">
+			<VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" VALUE="{$iSigName}" IS_INTERRUPT="{$is_interrupt}" IS_RANGE="TRUE"/>
+		</xsl:when>
+
+		<xsl:when test="(not($iSigName = '__DEF__') and not($iSigName = '__NOC__') and ($is_input ='TRUE') and ($is_interrupt = 'TRUE'))">
+			<VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" VALUE="{$iSigName}" IS_INTERRUPT="{$is_interrupt}"/>
+		</xsl:when>
+
+		<xsl:otherwise>
+			<VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" />
+		</xsl:otherwise>
+	</xsl:choose>
+
+	<xsl:variable name="noOFConnections" select="count(CONNECTIONS/CONNECTION)" />
+	<xsl:if test="$noOFConnections != 0" >
+		<!--VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" /-->
+		<CONNECTIONS>
+		<xsl:for-each select="CONNECTIONS/CONNECTION" >
+			<xsl:variable name="iInstance" select="@INSTANCE"/>
+			<xsl:variable name="iPort" select="@PORT"/>	
+			<xsl:choose>
+				<xsl:when test="@BUSINTERFACE">
+					<xsl:variable name="iBusName" select="@BUSINTERFACE"/>
+					<CONNECTION INSTANCE="{$iInstance}" PORT="{$iPort}" BUSINTERFACE="{$iBusName}"/>
+				</xsl:when>
+                <xsl:when test="@PORT">
+					<CONNECTION INSTANCE="{$iInstance}" PORT="{$iPort}"/>
+                </xsl:when>
+				<xsl:otherwise>
+					<CONNECTION INSTANCE="{$iInstance}"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>
+		</CONNECTIONS>
+	</xsl:if>
+	
+	
+
+	<!-->xsl:message Check for bus interface ports -->
+	<xsl:if test="$iBifPortRef != '__NONE__'">
+
+	<!--ANUJDEBUG VALUE="WRITINF INTERFACE PORT"/-->
+		<xsl:variable name="noOfIfConnections" select="$iBifPortRef/CONNECTIONS/CONNECTION"/>
+		<xsl:if test="$noOfIfConnections != 0">
+			<!--VARIABLE VIEWTYPE="LISTVIEW" VIEWDISP="Connected Port" NAME="CONNECTIVITY" /-->
+			<CONNECTIONS>
+			<xsl:for-each select="$iBifPortRef/CONNECTIONS/CONNECTION" >
+				<xsl:variable name="iInstance" select="@INSTANCE"/>
+				<xsl:variable name="iPort" select="@PORT"/>
+				<xsl:choose>
+					<xsl:when test="@BUSINTERFACE">
+						<xsl:variable name="iBusName" select="@BUSINTERFACE"/>
+						<CONNECTION INSTANCE="{$iInstance}" PORT="{$iPort}" BUSINTERFACE="{$iBusName}"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<CONNECTION INSTANCE="{$iInstance}" PORT="{$iPort}"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:for-each>
+			</CONNECTIONS>
+		</xsl:if>
+	</xsl:if>
+	
 </SET>
 </xsl:template>
 

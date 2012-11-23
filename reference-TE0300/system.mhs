@@ -132,20 +132,33 @@ BEGIN bram_block
  BUS_INTERFACE PORTB = dlmb_port
 END
 
+BEGIN util_reduced_logic
+ PARAMETER INSTANCE = Reset_logic
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_OPERATION = and
+ PARAMETER C_SIZE = 2
+ PORT Op1 = sys_rst_s & enable_ext_rst
+ PORT Res = int_rst
+END
+
 BEGIN xps_gpio
  PARAMETER INSTANCE = LED
  PARAMETER HW_VER = 2.00.a
- PARAMETER C_GPIO_WIDTH = 1
+ PARAMETER C_GPIO_WIDTH = 2
+ PARAMETER C_IS_DUAL = 1
+ PARAMETER C_GPIO2_WIDTH = 1
+ PARAMETER C_ALL_INPUTS_2 = 1
  PARAMETER C_TRI_DEFAULT = 0x00000000
  PARAMETER C_BASEADDR = 0x81400000
  PARAMETER C_HIGHADDR = 0x8140ffff
  BUS_INTERFACE SPLB = mb_plb
- PORT GPIO_IO_O = fpga_0_LED_GPIO_d_out
+ PORT GPIO_IO_O = enable_ext_rst & fpga_0_LED_GPIO_d_out
+ PORT GPIO2_IO_I = sys_rst_s
 END
 
 BEGIN xps_spi
  PARAMETER INSTANCE = SPI_FLASH
- PARAMETER HW_VER = 2.02.a
+ PARAMETER HW_VER = 2.02.b
  PARAMETER C_FIFO_EXIST = 1
  PARAMETER C_SCK_RATIO = 32
  PARAMETER C_NUM_SS_BITS = 1
@@ -243,7 +256,8 @@ BEGIN proc_sys_reset
  PARAMETER C_EXT_RESET_HIGH = 1
  PORT Slowest_sync_clk = sys_clk_s
  PORT Dcm_locked = clock_generator_locked
- PORT Ext_Reset_In = sys_rst_s
+# PORT Ext_Reset_In = sys_rst_s
+ PORT Ext_Reset_In = int_rst
  PORT MB_Reset = mb_reset
  PORT Bus_Struct_Reset = sys_bus_reset
  PORT MB_Debug_Sys_Rst = Debug_SYS_Rst
@@ -342,22 +356,3 @@ BEGIN xps_npi_dma
  PORT NPI_Clk = DDR_SDRAM_mpmc_clk_s
 END
 
-# PORT ChipScope = xps_npi_dma_0_ChipScope
-# PORT ChipScope = xps_npi_dma_0_ChipScope
-# BEGIN chipscope_ila
-# PARAMETER INSTANCE = chipscope_ila_0
-# PARAMETER HW_VER = 1.03.a
-# PARAMETER C_TRIG0_TRIGGER_IN_WIDTH = 64
-# PARAMETER C_ENABLE_TRIGGER_OUT = 0
-# PARAMETER C_TRIG0_UNIT_MATCH_TYPE = basic with edges
-# PARAMETER C_NUM_DATA_SAMPLES = 1024
-# PARAMETER C_TRIG0_UNIT_COUNTER_WIDTH = 16
-# PORT TRIG0 = xps_npi_dma_0_ChipScope
-# PORT CLK = DDR_SDRAM_mpmc_clk_s
-# PORT CHIPSCOPE_ILA_CONTROL = chipscope_ila_0_CHIPSCOPE_ILA_CONTROL
-# END
-# BEGIN chipscope_icon
-# PARAMETER INSTANCE = chipscope_icon_0
-# PARAMETER HW_VER = 1.04.a
-# PORT control0 = chipscope_ila_0_CHIPSCOPE_ILA_CONTROL
-# END

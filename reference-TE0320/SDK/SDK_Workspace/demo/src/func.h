@@ -19,7 +19,7 @@ void cycsleep(Xuint32 Cycles);
 XStatus RAM_test(Xuint32 Start_addr, Xuint32 Words, Xuint8 Mode);
 void check_control_fifo_overlow(FIFO_TYPE* ctrl_fifo);
 void caching(Xuint8 Enable);
-void set_led_mode(Xuint8 mode);
+//void set_led_mode(Xuint8 mode);
 
 #endif // HSSFUNC_H
 
