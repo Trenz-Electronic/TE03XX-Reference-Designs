@@ -1,7 +1,7 @@
 # Reference projects for TE03XX modules
 ## Requirements:
-* Xilinx ISE 13.2 
-* Xilinx EDK 13.2
+* Xilinx ISE 13.3 
+* Xilinx EDK 13.3
 * Git client
 
 ## Get projects
