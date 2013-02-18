@@ -48,4 +48,3 @@ rem Clean
 @del /F /q blinkin_vhdl.prj blinkin_xst.xrpt webtalk.log webtalk_pn.xml
 @rmdir /S /Q xst _ngo xlnx_auto_0_xdb
 @del /F /q blinkin_summary.html blinkin_guide.ncd
-
