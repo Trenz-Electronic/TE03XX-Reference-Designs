@@ -1,4 +1,4 @@
-rem Configure environment
+rem Configure environment 
 set XILINX=C:\Xilinx\13.3\ISE_DS\ISE
 set XILINX_DSP=%XILINX%
 set PATH=%XILINX%\bin\nt;%XILINX%\lib\nt;%PATH%
