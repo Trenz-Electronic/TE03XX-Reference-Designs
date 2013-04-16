@@ -1,0 +1,48 @@
+################################################################################
+# Copyright (C) 2012 Trenz Electronic
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a 
+# copy of this software and associated documentation files (the "Software"), 
+# to deal in the Software without restriction, including without limitation 
+# the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+# and/or sell copies of the Software, and to permit persons to whom the 
+# Software is furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included 
+# in all copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+# IN THE SOFTWARE.
+################################################################################
+
+NET sys_clk 	LOC = AA14 | IOSTANDARD = LVCMOS33 | PERIOD = 10000 ps;
+NET sys_rst_n	LOC = U23  | IOSTANDARD = LVTTL | PULLUP | TIG;
+NET LED<0> 		LOC = R20  | IOSTANDARD = LVCMOS33;
+NET LED<1> 		LOC = V23  | IOSTANDARD = LVCMOS33;
+NET LED<2> 		LOC = R19  | IOSTANDARD = LVCMOS33;
+NET LED<3> 		LOC = U24  | IOSTANDARD = LVCMOS33;
+
+NET  USB_IFCLK_pin        	LOC = P25  | IOSTANDARD = LVCMOS33 | PERIOD = 20833 ps;
+NET  USB_SLRD_pin         	LOC = T18  | IOSTANDARD = LVCMOS33;
+NET  USB_SLWR_pin         	LOC = U21  | IOSTANDARD = LVCMOS33;
+NET  USB_FLAGA_pin        	LOC = V21  | IOSTANDARD = LVCMOS33;
+NET  USB_FLAGB_pin        	LOC = AA22 | IOSTANDARD = LVCMOS33;
+NET  USB_FLAGC_pin        	LOC = U20  | IOSTANDARD = LVCMOS33;
+NET  USB_FLAGD_pin        	LOC = Y20  | IOSTANDARD = LVCMOS33;
+NET  USB_SLOE_pin        	LOC = AB23 | IOSTANDARD = LVCMOS33;
+NET  USB_PKTEND_pin			LOC = Y21  | IOSTANDARD = LVCMOS33;
+NET  USB_FIFOADR_pin<0>		LOC = AC23 | IOSTANDARD = LVCMOS33;
+NET  USB_FIFOADR_pin<1> 	LOC = W21  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<0>        	LOC = P26  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<1>        	LOC = R25  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<2>        	LOC = R26  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<3>        	LOC = T24  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<4>        	LOC = V25  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<5>        	LOC = W23  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<6>        	LOC = Y25  | IOSTANDARD = LVCMOS33;
+NET  USB_FD_pin<7>        	LOC = Y24  | IOSTANDARD = LVCMOS33;

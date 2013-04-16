@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=B:\GIT\TE03XX-Reference-Designs\vcom-TE0320-async\top.ncd
+OUTFILE=B:\GIT\TE03XX-Reference-Designs\vcom-TE0320-async\top.bit
+FAMILY=Spartan-3A DSP
+PART=xc3sd1800a-4fg676
+WORKINGDIR=B:\GIT\TE03XX-Reference-Designs\vcom-TE0320-async
+LICENSE=ISE
+USER_INFO=16020553_207303401_209847264_403
